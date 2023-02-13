@@ -1,0 +1,56 @@
+import math
+
+dict = {'price' : 100, 'time steps' : 5, 'sigma': 0.04, 'risk-free rate': 0.08, 'years': 1}
+u = math.exp(dict['sigma']* (math.exp(dict['years']/dict['time steps'])))
+print('up move is', round(u, 3))
+d = math.exp(-dict['sigma']* (math.exp(dict['years']/dict['time steps'])))
+print('down move is', round(d, 3))
+probup = (((math.exp(dict['risk-free rate']*dict['years']/dict['time steps'])) - d) / (u - d))
+print('probability of moving up is', round(probup, 3))
+
+
+
+def binomial(price, time_steps, sigma, riskfree_rate, years):
+    dict['time steps']
+    while dict['time steps'] >= 1:
+        def combos(n, i):
+            return math.factorial(n) / (math.factorial(n-i)*math.factorial(i))
+
+        pascal = []
+        for i in range(dict['time steps']+1):
+            pascal.append(combos(dict['time steps'], i))
+        print(dict['time steps'],'th time step probability multiplication factors are ', pascal)
+            
+        payoffs = []
+        n = 0
+        while n < dict['time steps'] + 1: 
+            payoffs.append (round(max(0, dict['price']*(u**((dict['time steps'])-n))*(d**n) - dict['price']), 2))
+            n += 1
+        print('payoffs at specified time step are', payoffs)
+
+        probabilities = []
+        n = 0
+        for n in range(dict['time steps']+1):
+            probabilities.append(pascal[n]*(probup**((dict['time steps'])-n))*((1-probup)**n))
+            n += 1
+        print('probabilities of payoffs at specified time step are', probabilities)
+
+        discounting1 = []
+        i = 0
+        while i < (dict['time steps']):
+            if len(payoffs) > dict['time steps']:
+                discounting1.append((((probabilities[i]/(probabilities[i]+probabilities[i+1]))*payoffs[i]) + ((probabilities[i+1]/(probabilities[i]+probabilities[i+1]))*payoffs[i+1]))
+                                    / (math.exp(dict['risk-free rate']*dict['time steps'])))
+            else: # my attempt at making the function take its own output
+                discounting1.append((((probabilities[i]/(probabilities[i]+probabilities[i+1]))*discounting1[i]) + ((probabilities[i+1]/(probabilities[i]+probabilities[i+1]))*discounting1[i+1])) 
+                                    / (math.exp(dict['risk-free rate']*dict['time steps'])))
+            i += 1   
+        print('discounted payoffs at specified time step minus 1 are', discounting1)
+        
+        dict['time steps'] -= 1
+    return discounting1
+
+print(binomial(100, 5, 0.04, 0.08, 1))
+
+# this version, although it does work, does not take the previous discounted prices list and instead creates its new ones from the payoff list
+    
