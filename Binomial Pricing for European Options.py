@@ -45,11 +45,6 @@ def binomial(strike, price, time_steps, sigma, riskfree_rate, years, dividend):
         payoffs.clear()
         payoffs.extend(discounting1)
         
-        if (dict['price']*(u**((dict['time steps']-1))) - dict['strike']) > discounting1[0]:
-            print('exercise at time step', dict['time steps'])
-        else:
-            pass
-        
         dict['time steps'] -= 1
         
     return discounting1
