@@ -32,6 +32,7 @@ def binomial(strike, price, time_steps, sigma, riskfree_rate, years, dividend):
         for i in range(dict['time steps']+1):
             probabilities.append(pascal[i]*(probup**((dict['time steps'])-i))*((1-probup)**i))
             i += 1
+        # the pascal and probabilities list are not being used in the calculation, but are useful when you want to see the probabilities of a payoff at a certain time step
 
         discounting1 = []
         i = 0
