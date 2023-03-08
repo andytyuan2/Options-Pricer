@@ -51,7 +51,7 @@ def binomial(strike, price, time_steps, sigma, riskfree_rate, years, dividend):
         while i < (dict['time steps']):
             if dict['AmerEu'] == 1:
                 American_payoff = (dict['callput']*(dict['price']*(u**(dict['time steps']-i-1)*(d**i)) - dict['strike']))
-                European_payoff = ((probup)*payoffs[i]) + ((1-probup)*payoffs[i+1])/ (math.exp(discount_factor))
+                European_payoff = (((probup)*payoffs[i]) + ((1-probup)*payoffs[i+1]))/ (math.exp(discount_factor))
                 discounting1.append(max(American_payoff, European_payoff))
             elif dict['AmerEu'] == -1:
                 discounting1.append(((probup)*payoffs[i]) + ((1-probup)*payoffs[i+1])
