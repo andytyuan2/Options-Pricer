@@ -1,7 +1,7 @@
 import math
 #########################################################################################################################################################################
 dict = {'strike' : int($), 'price' : int($), 'time steps' : int(whole number), 'sigma': int(%/100), 'years': int, 'risk-free rate': int(%/100), 
-        'dividend': int(%/100, dividend yield), 'callput': -1, 'AmerEu': -1}
+        'dividend': int(%/100, dividend yield), 'callput': +-1, 'AmerEu': +-1}
 Rf = dict['risk-free rate']
 Vol = dict['sigma']
 og_payoffs = []
