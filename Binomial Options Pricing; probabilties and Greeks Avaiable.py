@@ -1,7 +1,7 @@
 import math
-#############################################################################################################################################
-dict = {'strike' : 100, 'price' : 100, 'time steps' : 10, 'sigma': 0.2, 'years': 1, 'risk-free rate': 0.04, 'dividend': 0.02, 
-        'callput': -1, 'AmerEu': -1}
+#########################################################################################################################################################################
+dict = {'strike' : int($), 'price' : int($), 'time steps' : int(whole number), 'sigma': int(%/100), 'years': int, 'risk-free rate': int(%/100), 
+        'dividend': int(%/100, dividend yield), 'callput': -1, 'AmerEu': -1}
 Rf = dict['risk-free rate']
 Vol = dict['sigma']
 og_payoffs = []
@@ -26,7 +26,7 @@ while dict['risk-free rate'] >= Rf-0.0025:
         exercise = 'American'
     else:
         exercise = 'European'
-#############################################################################################################################################  
+#########################################################################################################################################################################
     def binomial():
         Tstep = dict['time steps']
         payoffs = []
@@ -43,7 +43,7 @@ while dict['risk-free rate'] >= Rf-0.0025:
             pass
         
         while Tstep >= 1:
-#############################################################################################################################################
+#########################################################################################################################################################################
         # not used in the actual calculation but useful to see what the probabilities of each node is at a specific timestep    
             def combos(n, i):
                 return math.factorial(n) / (math.factorial(n-i)*math.factorial(i))
@@ -57,7 +57,7 @@ while dict['risk-free rate'] >= Rf-0.0025:
             for i in range(Tstep+1):
                 probabilities.append(pascal[i]*(probup**((Tstep)-i))*((1-probup)**i))
                 i += 1
-#############################################################################################################################################
+#########################################################################################################################################################################
             discounting1 = []
             i = 0
             while i < (Tstep):
@@ -112,7 +112,7 @@ while dict['sigma'] >= Vol-0.01:
     probup = (((math.exp((dict['risk-free rate']-dict['dividend'])*dict['years']/dict['time steps'])) - d) / (u - d))
     discount_factor = dict['risk-free rate']/dict['time steps']
     duration_of_time_step = float(dict['years']/dict['time steps'])
-#############################################################################################################################################  
+#########################################################################################################################################################################
     def binomial2():
         Tstep = dict['time steps']
         
@@ -148,13 +148,13 @@ vega = (vega_finite_differences[0] - vega_finite_differences[1])
 
 print(f"Additionally, the Vega is {round(vega,5)} and the Rho is {round(rho,5)}")
 
-#####################################################################################################################################################################################
+#########################################################################################################################################################################
 # compared to the calculator offered at https://accuratecalculators.com/options-calculator, my prices are good, delta is good, gamma is good, vega and rho are good,
 # there is a problem now where the absolute value of rho is higher on the call than the put, which should not be happening 
 
 
 
-#####################################################################################################################################################################################
+#########################################################################################################################################################################
 # Overall, the difference between the American and European option is changed the most when changing the dividend rate, 
 # and the effect is felt more strongly by put options than call options 
 
@@ -165,6 +165,5 @@ print(f"Additionally, the Vega is {round(vega,5)} and the Rho is {round(rho,5)}"
 # As of current mathematical analysis, the put-call symmetry does not explicitly work in the binomial model,
 # only for the black-scholes is there a formula, which only works with the Black-Scholes model since it depeends on GBM and a lognormal stock price distribution
 
-
-# no arbitrage in the binomial model is when the interest rate is between u and d
-# the european call option in the binomial model converges to the black-scholes equation
+# No arbitrage in the binomial model is when the interest rate is between u and d
+# The european call option in the binomial model converges to the black-scholes equation
