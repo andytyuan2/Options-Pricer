@@ -12,7 +12,7 @@ delta_for_gamma = []
 delta_calculation = []
 rho_finite_differences = []
 while dict['risk-free rate'] >= Rf-0.0025:
-    u = math.exp(dict['sigma']*math.sqrt(1/dict['time steps']))
+    u = math.exp(dict['sigma']*math.sqrt(dict['years']/dict['time steps']))
     d = 1/u
     probup = (((math.exp((dict['risk-free rate']-dict['dividend'])*dict['years']/dict['time steps'])) - d) / (u - d))
     discount_factor = dict['risk-free rate']/dict['time steps']
@@ -107,7 +107,7 @@ while dict['risk-free rate'] >= Rf-0.0025:
 #########################################################################################################################################################################
 vega_finite_differences = []
 while dict['sigma'] >= Vol-0.01:
-    u = math.exp(dict['sigma']*math.sqrt(1/dict['time steps']))
+    u = math.exp(dict['sigma']*math.sqrt(dict['years']/dict['time steps']))
     d = 1/u
     probup = (((math.exp((dict['risk-free rate']-dict['dividend'])*dict['years']/dict['time steps'])) - d) / (u - d))
     discount_factor = dict['risk-free rate']/dict['time steps']
