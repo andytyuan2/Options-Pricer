@@ -1,7 +1,7 @@
 import math
 
 dict = {'strike' : 90, 'price' : 100, 'time steps' : 10, 'sigma': 0.2, 'risk-free rate': 0.04, 'years': 1, 'dividend': 0.02}
-u = math.exp(dict['sigma']*math.sqrt(1/dict['time steps']))
+u = math.exp(dict['sigma']*math.sqrt(dict['years']/dict['time steps']))
 print('up', u)
 d = 1/u
 print('down', d)
