@@ -5,7 +5,7 @@ The main file that includes Greeks and Probabilities has a variety of functions.
 
 The option price effect folder examines the option price sensitivity to changes in those parameters. My findings are described below. The default amounts are strike = 100, underlying price = 100, volatility = 20%, years = 1, risk-free rate = 4%, dividend yield = 2%, time steps = 10. The sensitivity analysis takes the lowest of the specific parameter and increases it to a specific hard limit. These are the graphs resulting from the data I extracted from the models.
 
-Risk-Free Rate																
+Risk-Free Rate
 ![image](https://user-images.githubusercontent.com/125106540/231027367-b9a89bf8-55dc-4d22-a1de-1496d1eb0d05.png)
 
 Dividend Yield
