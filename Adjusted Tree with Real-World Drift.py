@@ -149,6 +149,8 @@ print(f"Additionally, the Vega is {round(vega,5)} and the Rho is {round(rho,5)}.
 #####################################################################################################################################################################################
 # Based on the CRR (Cox-Ross_Rubinstein) model of calculating the up and down movements,
 # and then applying an arbitrary real-world drift
+# from https://fbe.unimelb.edu.au/__data/assets/pdf_file/0010/2591884/170.pdf 
+        # "THE CONVERGENCE OF BINOMIAL TREES FOR PRICING THE AMERICAN PUT" Mark S. Joshi
 
 
 
