@@ -149,8 +149,7 @@ vega = (vega_finite_differences[0] - vega_finite_differences[1])
 print(f"Additionally, the Vega is {round(vega,5)} and the Rho is {round(rho,5)}")
 
 #########################################################################################################################################################################
-# compared to the calculator offered at https://accuratecalculators.com/options-calculator, my prices are good, delta is good, gamma is good, vega and rho are good,
-# there is a problem now where the absolute value of rho is higher on the call than the put, which should not be happening 
+# In this model, I used the Cox-Ross-Rubenstein (CRR) model to calculate my up and down movements as well as my probabilities of movements.
 
 
 
@@ -161,6 +160,7 @@ print(f"Additionally, the Vega is {round(vega,5)} and the Rho is {round(rho,5)}"
 # The put-call symmetry argument is dependent on Geometric Brownian motion, which gives a generally lognormal curve when modelling stock prices; 
 # the equation for the model states that the put option of interest rate=x and dividend rate =y,
 # is the same as a call option with rate=y and dividend=x, assuming all other parameters are the same.
+# This is a result I get in this model
 
 # As of current mathematical analysis, the put-call symmetry does not explicitly work in the binomial model,
 # only for the black-scholes is there a formula, which only works with the Black-Scholes model since it depeends on GBM and a lognormal stock price distribution
