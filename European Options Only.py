@@ -10,7 +10,7 @@ discount_factor = dict['risk-free rate']/dict['time steps']
 timesteps = dict['time steps']
 # dictionary contains all the parameters, u = up movement, d = down movement, probup = probability of an up movement, discount factor is used in the function below
 
-def binomial(strike, price, time_steps, sigma, riskfree_rate, years, dividend):
+def binomial():
     payoffs = []
     n = 0
     while n < dict['time steps'] + 1: 
@@ -49,4 +49,4 @@ def binomial(strike, price, time_steps, sigma, riskfree_rate, years, dividend):
         
     return discounting1
 
-print('option price at t=0 is', binomial(dict['strike'], dict['price'], dict['risk-free rate'], dict['sigma'], dict['time steps'], dict['years'], dict['dividend']))
+print('option price at t=0 is', binomial())
