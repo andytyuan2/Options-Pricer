@@ -10,7 +10,7 @@ discount_factor = dict['risk-free rate']/dict['time steps']
 timesteps = dict['time steps']
 
 # function to calculate option price, contains the entire binomial tree
-def binomial(strike, price, time_steps, sigma, riskfree_rate, years, dividend):
+def binomial():
     payoffs = []
     n = 0
     while n < dict['time steps'] + 1: 
@@ -51,4 +51,4 @@ def binomial(strike, price, time_steps, sigma, riskfree_rate, years, dividend):
         dict['time steps'] -= 1
     return discounting1
 
-print('option price at t=0 is', binomial(dict['strike'], dict['price'], dict['risk-free rate'], dict['sigma'], dict['time steps'], dict['years'], dict['dividend']))
+print('option price at t=0 is', binomial())
