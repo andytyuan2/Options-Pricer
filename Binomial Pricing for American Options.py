@@ -1,7 +1,7 @@
 import math
 # dictionary contains all the parameters, u = up movement, d = down movement, probup = probability of an up movement, discount factor is used in the function below
 dict = {'strike' : 90, 'price' : 100, 'time steps' : 20, 'sigma': 0.2, 'risk-free rate': 0.04, 'years': 1, 'dividend': 0.02, 'nexercise': 20}
-u = math.exp(dict['sigma']*math.sqrt(1/dict['time steps']))
+u = math.exp(dict['sigma']*math.sqrt(dict['years']/dict['time steps']))
 print('up', u)
 d = 1/u
 print('down', d)
