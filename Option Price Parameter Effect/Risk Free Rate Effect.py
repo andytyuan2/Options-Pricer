@@ -1,6 +1,6 @@
 import math
 #########################################################################################################################################################################
-dict = {'strike' : 100, 'price' : 100, 'time steps' : 20, 'sigma': 0.2, 'years': 1, 'risk-free rate': 0.00, 'dividend': 0.02, 
+dict = {'strike' : 100, 'price' : 100, 'time steps' : 10, 'sigma': 0.2, 'years': 1, 'risk-free rate': 0.00, 'dividend': 0.02, 
         'callput': -1, 'AmerEu': -1}
 
 # call = 1, put = -1; in callput
