@@ -14,8 +14,8 @@ Dividend Yield
 Volatility
 ![image](https://user-images.githubusercontent.com/125106540/231027488-6fbbca4e-db94-4918-9d8c-5d1ec22c9065.png)
 
-Years
-![image](https://user-images.githubusercontent.com/125106540/231027582-1cfffbb8-7994-477b-a57f-8d74356ec35b.png)
+Years / Time to Expiry
+![image](https://user-images.githubusercontent.com/125106540/231862868-386d159a-0c93-4a56-a4e7-2bbc65801901.png)
 
 Time Steps
 ![image](https://user-images.githubusercontent.com/125106540/231027709-ad47dc13-c76a-47ac-a21e-4314a543d9d9.png)
