@@ -5,23 +5,26 @@ The main file that includes Greeks and Probabilities has a variety of functions.
 
 The option price effect folder examines the option price sensitivity to changes in those parameters. My findings are described below. The default amounts are strike = $100, underlying price = $100, volatility = 20%, Time to expiry (years) = 1 year, risk-free rate = 4%, dividend yield = 2%, time steps = 10. The sensitivity analysis takes the lowest of the specific parameter and increases it to a specific hard limit. These are the graphs resulting from the data I extracted from the models.
 
-Risk-Free Rate
-![image](https://user-images.githubusercontent.com/125106540/231027367-b9a89bf8-55dc-4d22-a1de-1496d1eb0d05.png)
+Risk-Free Rate without Risk-Neutral Drift Adjustment
+![image](https://user-images.githubusercontent.com/125106540/231875230-f2ddda38-612e-4ca4-85e9-ec3cb476141a.png)
+
+Risk-Free Rate with Risk-Neutral Drift Adjustment
+![image](https://user-images.githubusercontent.com/125106540/231875608-c4b39b7b-c168-4538-9c80-59d77b51a6d4.png)
 
 Dividend Yield 
-![image](https://user-images.githubusercontent.com/125106540/231027439-228ba0e5-e221-4d81-b568-c3dcccfc08a8.png)
+![image](https://user-images.githubusercontent.com/125106540/231875795-c2f0400f-18a0-423f-977b-d3e5aa03cff3.png)
 
 Volatility
 ![image](https://user-images.githubusercontent.com/125106540/231027488-6fbbca4e-db94-4918-9d8c-5d1ec22c9065.png)
 
 Years / Time to Expiry
-![image](https://user-images.githubusercontent.com/125106540/231862868-386d159a-0c93-4a56-a4e7-2bbc65801901.png)
+![image](https://user-images.githubusercontent.com/125106540/231875908-f597c952-0912-4f1a-968f-2ef51aa1a8b7.png)
 
 Time Steps
-![image](https://user-images.githubusercontent.com/125106540/231027709-ad47dc13-c76a-47ac-a21e-4314a543d9d9.png)
+![image](https://user-images.githubusercontent.com/125106540/231875992-9d56cb0a-ef20-41d4-861b-3bd7c5e3dd12.png)
 
 Option Strike
-![image](https://user-images.githubusercontent.com/125106540/231027810-2174adb4-5a87-4ebe-a1ff-3d4c3bafa779.png)
+![image](https://user-images.githubusercontent.com/125106540/231876066-e1cf0338-a5d3-4ba7-a7c7-444ba494379c.png)
 
 Underlying Price
-![image](https://user-images.githubusercontent.com/125106540/231027918-e047999e-6dd7-4c78-8b0e-1004474611b0.png)
+![image](https://user-images.githubusercontent.com/125106540/231876195-f7a7d929-d7d1-43b6-82f2-e5e654c5be03.png)
