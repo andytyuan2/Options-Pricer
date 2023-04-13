@@ -74,13 +74,3 @@ while dict['risk-free rate'] < 2:
     dict['risk-free rate'] += 0.0025
     
 print(Prices_different_rates)
-
-# The put-call symmetry argument is dependent on Geometric Brownian motion, which gives a generally lognormal curve when modelling stock prices; 
-# the equation for the model states that the put option of interest rate=x and dividend rate =y,
-# is the same as a call option with rate=y and dividend=x, assuming all other parameters are the same.
-
-# As of current mathematical analysis, the put-call symmetry does not explicitly work in the binomial model,
-# only for the black-scholes is there a formula, which only works with the Black-Scholes model since it depeends on GBM and a lognormal stock price distribution
-
-# No arbitrage in the binomial model is when the interest rate is between u and d
-# The european call option in the binomial model converges to the black-scholes equation
