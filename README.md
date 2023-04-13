@@ -1,9 +1,9 @@
-This is the binomial pricing model for both American and European options; using python. Written by Andy in 2023 at Western University with the mathematical support of professor Lars Stentoft. At this time I was in my third year of a 4-year bachelor's degree in accounting and applied statistics.
+This is the CRR binomial pricing model for both American and European options; using python. Written by Andy in 2023 at Western University with the mathematical support of professor Lars Stentoft. At this time I was in my third year of a 4-year bachelor's degree in accounting and applied statistics.
 It served as a pilot project so I could learn Python and quantitative finance concepts outside of my curriculum.
 
-The main file that includes Greeks and Probabilities has a variety of functions. It calculates all the Greeks, some by using the tree and some by using finite differences (derivatives). Additionally, there are probabilities of the individual nodes at payoff according to the binomial distribution. 
+The main file that includes Greeks and Probabilities has a variety of functions. It calculates all the Greeks, some by using the tree and some by using finite differences (derivatives). Additionally, there are probabilities of the individual nodes at payoff according to the binomial distribution. Though you will have to print these probabilties yourself.
 
-The option price effect folder examines the option price sensitivity to changes in those parameters. My findings are described below. The default amounts are strike = 100, underlying price = 100, volatility = 20%, years = 1, risk-free rate = 4%, dividend yield = 2%, time steps = 10. The sensitivity analysis takes the lowest of the specific parameter and increases it to a specific hard limit. These are the graphs resulting from the data I extracted from the models.
+The option price effect folder examines the option price sensitivity to changes in those parameters. My findings are described below. The default amounts are strike = $100, underlying price = $100, volatility = 20%, Time to expiry (years) = 1 year, risk-free rate = 4%, dividend yield = 2%, time steps = 10. The sensitivity analysis takes the lowest of the specific parameter and increases it to a specific hard limit. These are the graphs resulting from the data I extracted from the models.
 
 Risk-Free Rate
 ![image](https://user-images.githubusercontent.com/125106540/231027367-b9a89bf8-55dc-4d22-a1de-1496d1eb0d05.png)
