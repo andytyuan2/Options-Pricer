@@ -26,6 +26,13 @@ The [option price effect](https://github.com/andytyuan2/Binomial-Options_Pricing
     - Risk-Free Rate = 4%
     - Continuous Dividend Yield = 2%
     - Time Steps in the Tree = 10 steps
+    
+    The default option prices are:
+    
+    - European put = $6.60708
+    - European call = $8.548
+    - American put = $6.90391
+    - American call = $8.548
 
 ### Excel File of Sensitivity Data 
 The data I pulled from the sensitivity analysis is within the [Excel File](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/blob/main/Excel%3B%20Options%20Price%20Sensitivity%20Analysis.xlsm). 
@@ -48,9 +55,8 @@ The other three files: [American Options Only](https://github.com/andytyuan2/Bin
     - ![image](https://user-images.githubusercontent.com/125106540/233266813-042d0d08-f7ae-4954-b958-33b50e393b35.png)
       - Where ![image](https://user-images.githubusercontent.com/125106540/233266940-bdc620d6-afa3-4fb6-b057-9b9fd1d25da4.png)
 
-Without the risk-neutral drift adjustment, the tree is recombinant on the underlying price. With the drift adjustment, the tree is recombinant on the risk-free rate instead. This prevents the drift from occurring, which will be illustrated in its [specific graph](###risk--free-rate-with-risk--neutral-drift-adjustment:).
-
-I referenced [this article](https://fbe.unimelb.edu.au/__data/assets/pdf_file/0010/2591884/170.pdf) for the calculations of up and down.
+Without the risk-neutral drift adjustment, the tree is recombinant on the underlying price. With the drift adjustment, the tree is recombinant on the risk-free rate instead. This prevents the drift from occurring, which will be illustrated in its specific graph.
+> I referenced [this article](https://fbe.unimelb.edu.au/__data/assets/pdf_file/0010/2591884/170.pdf) for the calculations of up and down.
 
 ## Sensitivity Graphs
 > Y-axis is the option price, X-axis is the parameter being changed
@@ -85,7 +91,9 @@ I referenced [this article](https://fbe.unimelb.edu.au/__data/assets/pdf_file/00
 ### Underlying Price:
 ![image](https://user-images.githubusercontent.com/125106540/231876195-f7a7d929-d7d1-43b6-82f2-e5e654c5be03.png)
 
-<!-- ## Thoughts on the Graphs
+## Thoughts on the Graphs
+coming soon...
+<!-- 
 ### Risk-Free Rate without Risk-Neutral Drift Adjustment
 ### Risk-Free Rate with Risk-Neutral Drift Adjustment
 ### Risk-Free Rate with Risk-Neutral Drift Adjustment, up to 75% risk-free rate 
@@ -93,7 +101,11 @@ I referenced [this article](https://fbe.unimelb.edu.au/__data/assets/pdf_file/00
 ### Dividend Yield
 ### Volatility
 ### Years / Time to Expiry
-The graph of the option's price in reaction to the change of the time to expiry is similar to a natural logarithm's graph. 
+The graph of the option's price in reaction to the change of the time to expiry is similar to a natural logarithm's graph. From option theory, this movement is expected as a an option's price is essentially intrinsic value + time value. With more time to expiry, there is more of an opportunity for the option to profit as the range of possible underlying prices becomes larger with more time given. In this case, since the up movement of the option is slightly more probable, hanging around **0.5000000105409483** to **0.5001176546431096**, the call option ends up more expensive than the put option. 
+
+This graph also shows that the time premium is not the biggest determinant of option price. Even when time to expiry approaches 5 years, the option price does not change drastically. As seen in the other graphs, the option price can reach magnitudes of over $1000 under the right conditions. 
+
 ### Time Steps
 ### Option Strike
-### Underlying Price -->
+### Underlying Price
+ -->
