@@ -2,9 +2,12 @@
 
 ## Synopsis and Background
 
-This is the CRR binomial pricing model for both American and European options; using python. Written by Andy Yuan (me) in 2023 at Western University with the mathematical support of professor Lars Stentoft. At the time I was in my third year of a 4-year bachelor's degree, majoring in accounting and applied statistics. This project was a testing point to apply my newfound Python and quantitative finance knowledge. 
+This is the CRR binomial pricing model for both American and European options; using Python. Written by Andy Yuan (me) in 2023 at Western University with the mathematical support of professor Lars Stentoft. At the time I was in my third year of a 4-year bachelor's degree, majoring in accounting and applied statistics. This project was a testing point to apply my newfound Python and quantitative finance knowledge. 
 
 Thank you for reading!
+
+### A Visualization of the Binomial Model
+![image](https://user-images.githubusercontent.com/125106540/233267193-514cf2d7-6b5e-4a42-80db-f4236f9cd045.png)
 
 ## Guide to Use of Files
 
@@ -35,16 +38,19 @@ The other three files: [American Options Only](https://github.com/andytyuan2/Bin
 - The European Options Only file runs through only the European method of valuing the option, only taking the discounted version of the payoffs
 - The American Options Only file is similar to the European method of valuing the option, but takes into account the payoff at the specific time step. It chooses the maximum of the discounted payoffs and the payoff at exercise.
 - The Adjusted Tree differentiates itself from the main file by changing how the up and down movements are calculated. In tandem, it also changes the respective probabilities of up and down movement.
-  - Up, down, probability calculation without risk-neutral adjustment:
-    - ``u = math.exp(dict['sigma']*math.sqrt(dict['years']/dict['time steps']))``
-    - ``d = 1/u``
-    - ``probup = (((math.exp((dict['risk-free rate']-dict['dividend'])*dict['years']/dict['time steps'])) - d) / (u - d)) ``
-    - ``probdown = 1-probup``
+  - Applicable to both models: 
+    - ![image](https://user-images.githubusercontent.com/125106540/233267645-5b94ea7d-c4df-47ac-829f-ad0641b18333.png)
+
+  - Up, down, probability calculation without risk-neutral adjustment (CRR Model):
+    - ![image](https://user-images.githubusercontent.com/125106540/233267484-b09b0d4c-226e-4590-a66e-a47cc289a29f.png)
+
   - Up, down, probability calculation with risk-neutral adjustment:
-    - ``u = math.exp((math.log(dict['strike']) - math.log(dict['price']))/dict['time steps'] + dict['sigma']*math.sqrt(dict['years']/dict['time steps']))``
-    - ``d = math.exp((math.log(dict['strike']) - math.log(dict['price']))/dict['time steps'] - dict['sigma']*math.sqrt(dict['years']/dict['time steps']))``
-    - ``probup = (((math.exp((dict['risk-free rate']-dict['dividend'])*dict['years']/dict['time steps'])) - d) / (u - d))``
-    - ``probdown = 1-probup``
+    - ![image](https://user-images.githubusercontent.com/125106540/233266813-042d0d08-f7ae-4954-b958-33b50e393b35.png)
+      - Where ![image](https://user-images.githubusercontent.com/125106540/233266940-bdc620d6-afa3-4fb6-b057-9b9fd1d25da4.png)
+
+Without the risk-neutral drift adjustment, the tree is recombinant on the underlying price. With the drift adjustment, the tree is recombinant on the risk-free rate instead. This prevents the drift from occurring, which will be illustrated in its [specific graph](###risk--free-rate-with-risk--neutral-drift-adjustment:).
+
+I referenced [this article](https://fbe.unimelb.edu.au/__data/assets/pdf_file/0010/2591884/170.pdf) for the calculations of up and down.
 
 ## Sensitivity Graphs
 > Y-axis is the option price, X-axis is the parameter being changed
