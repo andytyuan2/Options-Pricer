@@ -28,8 +28,8 @@ The [option price effect](https://github.com/andytyuan2/Binomial-Options_Pricing
     - Underlying Asset Price (S) = $100
     - Implied Volatility (σ) = 20%
     - Time to Expiry (T) = 1 year
-    - Risk-Free Rate (Rf) = 4%
-    - Continuous Dividend Yield (d) = 2%
+    - Risk-Free Rate (r) = 4%
+    - Continuous Dividend Yield (δ) = 2%
     - Time Steps in the Tree (N) = 10 steps
     
     The default option prices are:
@@ -51,7 +51,9 @@ The other three files: [American Options Only](https://github.com/andytyuan2/Bin
 - The American Options Only file is similar to the European method of valuing the option, but takes into account the payoff at the specific time step. It chooses the maximum of the discounted payoffs and the payoff at exercise.
 - The Adjusted Tree differentiates itself from the main file by changing how the up and down movements are calculated. In tandem, it also changes the respective probabilities of up and down movement.
   - Applicable to both models: 
-    - ![image](https://user-images.githubusercontent.com/125106540/233267645-5b94ea7d-c4df-47ac-829f-ad0641b18333.png)
+    - ![image](https://user-images.githubusercontent.com/125106540/233430658-4c61a038-5070-4207-8524-3551584904d3.png)
+    - ![image](https://user-images.githubusercontent.com/125106540/233430735-6041496d-8888-4d4a-9ee7-861b85a3e7c6.png)
+
 
   - Up, down, probability calculation without risk-neutral adjustment (CRR Model):
     - ![image](https://user-images.githubusercontent.com/125106540/233267484-b09b0d4c-226e-4590-a66e-a47cc289a29f.png)
