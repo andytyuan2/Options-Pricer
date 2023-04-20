@@ -22,22 +22,22 @@ The [main file](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/bl
 ### Option Price Parameter Effect folder
 The [option price effect](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/tree/main/Option%20Price%20Parameter%20Effect) folder examines the option price sensitivity to changes in those parameters. 
 
-     The default parameters are:
+   The default parameters are:
 
-    - Option Strike (K) = $100
-    - Underlying Asset Price (S <sub>0</sub>) = $100
-    - Implied Volatility (σ) = 20%
-    - Time to Expiry (T) = 1 year
-    - Risk-Free Rate (r) = 4%
-    - Continuous Dividend Yield (δ) = 2%
-    - Time Steps in the Tree (N) = 10 steps
+   - Option Strike (K) = $100
+   - Underlying Asset Price (S<sub>0</sub>) = $100
+   - Implied Volatility (σ) = 20%
+   - Time to Expiry (T) = 1 year
+   - Risk-Free Rate (*r*) = 4%
+   - Continuous Dividend Yield (δ) = 2%
+   - Time Steps in the Tree (N) = 10 steps
     
-    The default option prices are:
+   The default option prices are:
     
-    - European put = $6.60708
-    - European call = $8.548
-    - American put = $6.90391
-    - American call = $8.548
+   - European put = $6.60708
+   - European call = $8.548
+   - American put = $6.90391
+   - American call = $8.548
 
 ### Excel File of Sensitivity Data 
 The data I pulled from the sensitivity analysis is within the [Excel File](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/blob/main/Excel%3B%20Options%20Price%20Sensitivity%20Analysis.xlsm). 
