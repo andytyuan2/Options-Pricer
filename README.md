@@ -103,6 +103,7 @@ Without the risk-neutral drift adjustment, the tree is recombinant on the underl
 
 ### Risk-Free Rate with Risk-Neutral Drift Adjustment
 > coming soon...
+<!-- if the number of time steps is small, then the two prices tend to be different, but as they increase the option price will converge to the same model and will give the same prices -->
 
 ### Risk-Free Rate with Risk-Neutral Drift Adjustment, up to 75% risk-free rate 
 > coming soon...
