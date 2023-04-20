@@ -111,16 +111,20 @@ Without the risk-neutral drift adjustment, the tree is recombinant on the underl
 > coming soon...
 
 ### Dividend Yield
-I set a limit of 100% because a negative stock price should not exist.
+> coming soon...
+<!-- I set a limit of 100% because a negative stock price should not exist.
 
 If the dividend yield of a stock increases, then investors expect the price of the stock to decease by the dividend amount. This is true in the case of a continuous dividend yield as pictured here or with discrete dividends. As such, this explains the movement of an increasing put option since the payoffs increase as the price of the underlying decreases. 
 
 It is interesting to see that at around 90% dividend yield, the call prices begin to increase to just under $1 for the European call. Theoretically, the American option should follow, but at this time I genuinely do not know why the model behaves as such. 
 - need to investigate why it rises slightly at the end 
+-->
 
 ### Volatility
-Implied volatility is essentially the standard deviation of the option. As it increases, the option price should also increase because the range of possible exercises increases too. 
+> coming soon...
+<!--Implied volatility is essentially the standard deviation of the option. As it increases, the option price should also increase because the range of possible exercises increases too. 
 - need to investigate why it begins to plateau before hitting 400% implied volatility
+-->
 
 ### Years / Time to Expiry
 The graph of the option's price in reaction to the change of the time to expiry is similar to a natural logarithm's graph. From option theory, this movement is expected as a an option's price is essentially intrinsic value + time value. With more time to expiry, there is more of an opportunity for the option to profit as the range of possible underlying prices becomes larger with more time given. In this case, since the up movement of the option is slightly more probable, hanging around **P(u) = 0.5000000105409483** to **P(u) = 0.5001176546431096**, the call option ends up more expensive than the put option. 
