@@ -2,12 +2,12 @@
 
 ## Synopsis and Background
 
-This is the CRR binomial pricing model for both American and European options; using Python. Written by Andy Yuan (me) in 2023 at Western University with the mathematical support of professor Lars Stentoft. At the time I was in my third year of a 4-year bachelor's degree, majoring in accounting and applied statistics. This project was a testing point to apply my newfound Python and quantitative finance knowledge. 
+This is the CRR binomial pricing model for both American and European options; using Python. Written by Andy Yuan (me) in 2023 at Western University (UWO) with the mathematical support of professor Lars Stentoft. At the time I was in my third year of a 4-year bachelor's degree, majoring in accounting and applied statistics. This project was a testing point to apply my newfound Python and quantitative finance knowledge. 
 
 ### My Contact Information 
 - [LinkedIn](https://www.linkedin.com/in/andytyuan/)
-- [University of Western Ontario Email](ayuan45@uwo.ca)
-- [Personal Email](andy.yuan2tdsb@gmail.com)
+- University of Western Ontario Email: ayuan45@uwo.ca
+- Personal Email: andy.yuan2tdsb@gmail.com
 
 ### A Visualization of the Binomial Model
 ![image](https://user-images.githubusercontent.com/125106540/233267193-514cf2d7-6b5e-4a42-80db-f4236f9cd045.png)
