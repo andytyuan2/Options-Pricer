@@ -4,7 +4,10 @@
 
 This is the CRR binomial pricing model for both American and European options; using Python. Written by Andy Yuan (me) in 2023 at Western University with the mathematical support of professor Lars Stentoft. At the time I was in my third year of a 4-year bachelor's degree, majoring in accounting and applied statistics. This project was a testing point to apply my newfound Python and quantitative finance knowledge. 
 
-Thank you for reading!
+### My Contact Information 
+- [LinkedIn](https://www.linkedin.com/in/andytyuan/)
+- [University of Western Ontario Email](ayuan45@uwo.ca)
+- [Personal Email](andy.yuan2tdsb@gmail.com)
 
 ### A Visualization of the Binomial Model
 ![image](https://user-images.githubusercontent.com/125106540/233267193-514cf2d7-6b5e-4a42-80db-f4236f9cd045.png)
@@ -142,3 +145,11 @@ As the direct opposite of the option strike graph, the value of puts incease as 
 
 Again, the lines intersect around when the underlying price equals the strike.
 
+## The put-call symmetry theory
+> coming soon...
+<!-- Most options theory and learning introduce the put-call parity concept. 
+
+![image](https://user-images.githubusercontent.com/125106540/233417000-f25561e5-dd82-4774-822e-14845f83cec8.png)
+
+There are a few restrictions on the use of the put-call parity such as the option must be European, the strikes must be the same, and the options must have the same maturity day. We focus on the limitations from the options being European only. 
+-->
