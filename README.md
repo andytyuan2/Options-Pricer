@@ -93,6 +93,7 @@ I referenced [this article](https://fbe.unimelb.edu.au/__data/assets/pdf_file/00
 ### Dividend Yield
 ### Volatility
 ### Years / Time to Expiry
+The graph of the option's price in reaction to the change of the time to expiry is similar to a natural logarithm's graph. 
 ### Time Steps
 ### Option Strike
 ### Underlying Price -->
