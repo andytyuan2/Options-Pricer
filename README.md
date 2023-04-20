@@ -7,6 +7,7 @@ This is the CRR binomial pricing model for both American and European options; u
 ### My Contact Information 
 - [LinkedIn](https://www.linkedin.com/in/andytyuan/)
 - University of Western Ontario Email: ayuan45@uwo.ca
+  - For professional use
 - Personal Email: andy.yuan2tdsb@gmail.com
 
 ### A Visualization of the Binomial Model
