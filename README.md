@@ -25,7 +25,7 @@ The [option price effect](https://github.com/andytyuan2/Binomial-Options_Pricing
      The default parameters are:
 
     - Option Strike (K) = $100
-    - Underlying Asset Price (S) = $100
+    - Underlying Asset Price (S <sub>0</sub>) = $100
     - Implied Volatility (σ) = 20%
     - Time to Expiry (T) = 1 year
     - Risk-Free Rate (r) = 4%
