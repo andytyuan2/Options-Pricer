@@ -24,13 +24,13 @@ The [option price effect](https://github.com/andytyuan2/Binomial-Options_Pricing
 
      The default parameters are:
 
-    - Option Strike = $100
-    - Underlying Asset Price = $100
-    - Implied Volatility = 20%
-    - Time to Expiry (Years) = 1 year
-    - Risk-Free Rate = 4%
-    - Continuous Dividend Yield = 2%
-    - Time Steps in the Tree = 10 steps
+    - Option Strike (K) = $100
+    - Underlying Asset Price (S) = $100
+    - Implied Volatility (σ) = 20%
+    - Time to Expiry (T) = 1 year
+    - Risk-Free Rate (Rf) = 4%
+    - Continuous Dividend Yield (d) = 2%
+    - Time Steps in the Tree (N) = 10 steps
     
     The default option prices are:
     
