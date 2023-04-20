@@ -9,6 +9,8 @@ Thank you for reading!
 ### A Visualization of the Binomial Model
 ![image](https://user-images.githubusercontent.com/125106540/233267193-514cf2d7-6b5e-4a42-80db-f4236f9cd045.png)
 
+The option moves up or down and has the same choices for each node it reaches. The CRR model is recombinant on the underlying price. For example, one up and one down movement cancels each other out to reach the initial underlying price. 
+
 ## Guide to Use of Files
 
 ### Main File
@@ -91,21 +93,52 @@ Without the risk-neutral drift adjustment, the tree is recombinant on the underl
 ### Underlying Price:
 ![image](https://user-images.githubusercontent.com/125106540/231876195-f7a7d929-d7d1-43b6-82f2-e5e654c5be03.png)
 
-## Thoughts on the Graphs
-coming soon...
-<!-- 
+## Thoughts and Explanations on the Graphs
+
 ### Risk-Free Rate without Risk-Neutral Drift Adjustment
+> coming soon...
+
 ### Risk-Free Rate with Risk-Neutral Drift Adjustment
+> coming soon...
+
 ### Risk-Free Rate with Risk-Neutral Drift Adjustment, up to 75% risk-free rate 
+> coming soon...
+
 ### Risk-Free Rate with Risk-Neutral Drift Adjustment, up to 5% risk-free rate
+> coming soon...
+
 ### Dividend Yield
+I set a limit of 100% because a negative stock price should not exist.
+
+If the dividend yield of a stock increases, then investors expect the price of the stock to decease by the dividend amount. This is true in the case of a continuous dividend yield as pictured here or with discrete dividends. As such, this explains the movement of an increasing put option since the payoffs increase as the price of the underlying decreases. 
+
+It is interesting to see that at around 90% dividend yield, the call prices begin to increase to just under $1 for the European call. Theoretically, the American option should follow, but at this time I genuinely do not know why the model behaves as such. 
+- need to investigate why it rises slightly at the end 
+
 ### Volatility
+Implied volatility is essentially the standard deviation of the option. As it increases, the option price should also increase because the range of possible exercises increases too. 
+- need to investigate why it begins to plateau before hitting 400% implied volatility
+
 ### Years / Time to Expiry
 The graph of the option's price in reaction to the change of the time to expiry is similar to a natural logarithm's graph. From option theory, this movement is expected as a an option's price is essentially intrinsic value + time value. With more time to expiry, there is more of an opportunity for the option to profit as the range of possible underlying prices becomes larger with more time given. In this case, since the up movement of the option is slightly more probable, hanging around **0.5000000105409483** to **0.5001176546431096**, the call option ends up more expensive than the put option. 
 
 This graph also shows that the time premium is not the biggest determinant of option price. Even when time to expiry approaches 5 years, the option price does not change drastically. As seen in the other graphs, the option price can reach magnitudes of over $1000 under the right conditions. 
 
 ### Time Steps
+Perhaps the graph that gives the most satisfaction, it shows the convergence of the binomial model to the black-scholes-merton model. the price actually oscillates around the black-scholes-merton model.
+
+This is the black-scholes-merton model:
+![image](https://user-images.githubusercontent.com/125106540/233411762-38b60c24-abba-46f9-b1ca-6f215c4d0404.png)
+
+The 'N' in the model is the cumulative distribution function of the normal distribution. There are a few limitations to the BSM model, namely the assumptions that the stock has no dividends and the option is European. The binomial model takes care of these restrictions.
+
 ### Option Strike
+As the strike gets larger while the price remains the same, put and call options move opposite to each other. If the strike is below the underlying price, the call option's value is higher because of the intrinsic value of exercising at time 0. If the strike is above the underlying price, the put option's value is higher for the same reason. 
+
+Both lines should intersect around when the strike reaches the underlying price. This concept is explained using the put-call symmetry, which will be discussed later. 
+
 ### Underlying Price
- -->
+As the direct opposite of the option strike graph, the value of puts incease as the underlying price is below the option strike. Similarly, the value of calls increase as the underlying price is above the option strike. 
+
+Again, the lines intersect around when the underlying price equals the strike.
+
