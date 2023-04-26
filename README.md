@@ -126,7 +126,9 @@ It is interesting to see that at around 90% dividend yield, the call prices begi
 
 ### Volatility
 > coming soon...
-<!--Implied volatility is essentially the standard deviation of the option. As it increases, the option price should also increase because the range of possible exercises increases too. 
+<!--Implied volatility is essentially the standard deviation of the option. As it increases, the option price should also increase because the range of possible exercises increases too. This is shown in the graph as the prices follow a parabolic curve as the implied volatility rises. 
+
+At around 400%, notice that the prices begin to plateau, seemingly slowing down to a maximum. From further analysis, 
 - need to investigate why it begins to plateau before hitting 400% implied volatility
 -->
 
