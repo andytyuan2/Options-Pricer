@@ -55,7 +55,6 @@ The other three files: [American Options Only](https://github.com/andytyuan2/Bin
     - ![image](https://user-images.githubusercontent.com/125106540/233430658-4c61a038-5070-4207-8524-3551584904d3.png)
     - ![image](https://user-images.githubusercontent.com/125106540/233430735-6041496d-8888-4d4a-9ee7-861b85a3e7c6.png)
 
-
   - Up, down, probability calculation without risk-neutral adjustment (CRR Model):
     - ![image](https://user-images.githubusercontent.com/125106540/233267484-b09b0d4c-226e-4590-a66e-a47cc289a29f.png)
 
@@ -70,16 +69,13 @@ Without the risk-neutral drift adjustment, the tree is recombinant on the underl
 > Y-axis is the option price, X-axis is the parameter being changed
 
 ### Risk-Free Rate without Risk-Neutral Drift Adjustment:
-![image](https://user-images.githubusercontent.com/125106540/231875230-f2ddda38-612e-4ca4-85e9-ec3cb476141a.png)
+![image](https://user-images.githubusercontent.com/125106540/234461153-17a1b9ba-4442-453c-89b8-7b31e4a3d671.png)
 
 ### Risk-Free Rate with Risk-Neutral Drift Adjustment:
 ![image](https://user-images.githubusercontent.com/125106540/231875608-c4b39b7b-c168-4538-9c80-59d77b51a6d4.png)
 
 ### Risk-Free Rate with Risk-Neutral Drift Adjustment, up to 75% risk-free rate:
 ![image](https://user-images.githubusercontent.com/125106540/233242638-5295569d-f0d6-4c65-85f7-0e833e1af761.png)
-
-### Risk-Free Rate with Risk-Neutral Drift Adjustment, up to 5% risk-free rate:
-![image](https://user-images.githubusercontent.com/125106540/233242870-f3f23069-184b-4d87-bf6c-a8ed890048d1.png)
 
 ### Dividend Yield:
 ![image](https://user-images.githubusercontent.com/125106540/231875795-c2f0400f-18a0-423f-977b-d3e5aa03cff3.png)
@@ -102,35 +98,28 @@ Without the risk-neutral drift adjustment, the tree is recombinant on the underl
 ## Thoughts and Explanations on the Graphs
 
 ### Risk-Free Rate without Risk-Neutral Drift Adjustment
-> coming soon...
+With the original CRR model, the up and down movements recombine on the original underlying price. This is what gives the model its binomial name. We see in the graph without the risk-neutral drift adjustment that the prices of the options begin to deviate from regular options theory. 
 
-### Risk-Free Rate with Risk-Neutral Drift Adjustment
-> coming soon...
-<!-- if the number of time steps is small, then the two prices tend to be different, but as they increase the option price will converge to the same model and will give the same prices -->
+A basic financial concept is that a security or asset will always be worth more if you are given choice in what you can do with it. This is why options, which give the **option** to exercise at expiry, have a premium while forwards, which absolutely must be exercised at expiry, do not. For an option, the European style of exercise gives the holder only one exercise opportunity at the end of the contract. The American style of exercise gives the holder unlimited exercise opportunity up until the end of the contract. This choice allows for further profit if prices are favourable **now**, rather than waiting for an uncertain price in the future. 
 
-### Risk-Free Rate with Risk-Neutral Drift Adjustment, up to 75% risk-free rate 
-> coming soon...
+In the graph, we see that as the risk-free rate increases past a large number, around 100% for the puts and around 120% for the calls, the prices of the European options begin to increase exponentially while the American options stagnate at their previous pace. This result is because of risk-neutral drift. In simpler terms, the risk-neutral drift arises from the probability of the up and down movements as the risk-free rate plays an integral role in determining the probabilities. Without going into specifics involving more difficult mathematical concepts and the underlying assumptions surrounding the black-scholes-merton and binomial models, I will say that the risk-neutral drift can be combatted by adding the presence of an adjustment in the form of ![image](https://user-images.githubusercontent.com/125106540/234463918-262a9a81-e988-4457-86ea-862969affd2c.png) with ![image](https://user-images.githubusercontent.com/125106540/233266940-bdc620d6-afa3-4fb6-b057-9b9fd1d25da4.png). This adjustment allows for the up and down movements to rely on both the strike and underlying price, which takes off some of the drift associated with the risk-free rate and only recombining on the underlying price.
 
-### Risk-Free Rate with Risk-Neutral Drift Adjustment, up to 5% risk-free rate
-> coming soon...
+> I found these slides from MIT to be helpful in explaining some of the concepts: https://math.mit.edu/~sheffield/600/Lecture36.pdf
+
+### Risk-Free Rate with Risk-Neutral Drift Adjustment, up to 400% and up to 75%
+With the adjustment, we see that the option prices move as we expect. The European and American prices at the very least follow each other, only differing by decimal places too small for python to bother with. You may notice it is strange that the puts are worth more than the calls at the very start of the graph, but this is present in the previous graph without the adjustment too. 
 
 ### Dividend Yield
-> coming soon...
-<!-- I set a limit of 100% because a negative stock price should not exist.
+I set a limit of 100% because a negative stock price would arise if more than 100% of the underlying were distributed as a dividend.
 
 If the dividend yield of a stock increases, then investors expect the price of the stock to decease by the dividend amount. This is true in the case of a continuous dividend yield as pictured here or with discrete dividends. As such, this explains the movement of an increasing put option since the payoffs increase as the price of the underlying decreases. 
 
-It is interesting to see that at around 90% dividend yield, the call prices begin to increase to just under $1 for the European call. Theoretically, the American option should follow, but at this time I genuinely do not know why the model behaves as such. 
-- need to investigate why it rises slightly at the end 
--->
+It is interesting to see that at around 90% dividend yield, the call prices begin to increase to just under $1 for the European call. Theoretically, the American option should follow, but at this time I genuinely do not know why the model behaves as such. It is fair to assume that a 90% dividend yield is virtually impossible, so for now it will be chalked up to a numerical error of a model that does not typically take extreme values.
 
 ### Volatility
-> coming soon...
-<!--Implied volatility is essentially the standard deviation of the option. As it increases, the option price should also increase because the range of possible exercises increases too. This is shown in the graph as the prices follow a parabolic curve as the implied volatility rises. 
+Implied volatility is essentially the standard deviation of the option. As it increases, the option price should also increase because the range of possible exercises increases too. This is shown in the graph as the prices follow a parabolic curve as the implied volatility rises. 
 
-At around 400%, notice that the prices begin to plateau, seemingly slowing down to a maximum. From further analysis, 
-- need to investigate why it begins to plateau before hitting 400% implied volatility
--->
+At around 400%, notice that the prices begin to plateau, seemingly slowing down to a maximum. Initially, my professor and I thought it was a numerical issue that would be solved as the number of steps increased in the model. After increasing the steps from 10 to 50, I saw that the shape persisted. From further analysis, I can deduce that the option price cannot increase past the initial underlying's price. This conclusion comes as a surprise because the discounted cash flows from both sides of the tree should be enough to increase past the underlying's initial price as seen with the other parameters. An explanation on why this happens is pending further research, but I predict that it is because volatility effects the option up and down factor by an exponential amount both up and down, so the amount of movement is actually limited to the underlying price.
 
 ### Years / Time to Expiry
 The graph of the option's price in reaction to the change of the time to expiry is similar to a natural logarithm's graph. From option theory, this movement is expected as a an option's price is essentially intrinsic value + time value. With more time to expiry, there is more of an opportunity for the option to profit as the range of possible underlying prices becomes larger with more time given. In this case, since the up movement of the option is slightly more probable, hanging around **P(u) = 0.5000000105409483** to **P(u) = 0.5001176546431096**, the call option ends up more expensive than the put option. 
