@@ -152,5 +152,33 @@ Again, the lines intersect around when the underlying price equals the strike.
 
 There are a few restrictions on the use of the put-call parity such as the options must be European, the strikes must be the same, and the options must have the same maturity day. We focus on the limitations from the options being European only. 
 
-The put-call symmetry theory states that a put option will be the same price as a call option if the strike and underlying, risk-free rate and dividend yield are switched. It also works for American options, so it is much more applicable in the general sense to options in the market.  
+The put-call symmetry theory states that a put option will be the same price as a call option if the strike and underlying, risk-free rate and dividend yield are switched. It also works for American options, so it is much more applicable in the general sense to options in the market. Furthermore, it is only valid 
+
+![image](https://user-images.githubusercontent.com/125106540/235369801-c9d4f164-46de-4946-a7f7-e42eb788e3ee.png)
+
+For a call with:
+    - Strike: $90
+    - Underlying Price: $100
+    - Time Steps: 10
+    - Implied Volatility: 20%
+    - Time to Maturity: 1 year
+    - Risk-free Rate: 4%
+    - Dividend Yield: 2%
+
+> European call option price is $ 14.534419943634203
+> American call option price is $ 14.534419943634203
+
+Then for a put with: 
+    - Strike: $100
+    - Underlying Price: $90
+    - Time Steps: 10
+    - Implied Volatility: 20%
+    - Time to Maturity: 1 year
+    - Risk-free Rate: 2%
+    - Dividend Yield: 4%
+
+> European put option price is $ 14.534419943634173
+> American put option price is $ 14.534419943634173
+
+So, we see here that the prices for both puts and calls are the same up until the 13th decimal place, where this decimal is likely too insignificant to affect the listed price. 
 -->
