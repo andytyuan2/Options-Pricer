@@ -150,5 +150,7 @@ Again, the lines intersect around when the underlying price equals the strike.
 
 ![image](https://user-images.githubusercontent.com/125106540/233417000-f25561e5-dd82-4774-822e-14845f83cec8.png)
 
-There are a few restrictions on the use of the put-call parity such as the option must be European, the strikes must be the same, and the options must have the same maturity day. We focus on the limitations from the options being European only. 
+There are a few restrictions on the use of the put-call parity such as the options must be European, the strikes must be the same, and the options must have the same maturity day. We focus on the limitations from the options being European only. 
+
+The put-call symmetry theory states that a put option will be the same price as a call option if the strike and underlying, risk-free rate and dividend yield are switched. It also works for American options, so it is much more applicable in the general sense to options in the market.  
 -->
