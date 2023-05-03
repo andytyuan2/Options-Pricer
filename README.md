@@ -65,7 +65,7 @@ The other three files: [American Options Only](https://github.com/andytyuan2/Bin
 Without the risk-neutral drift adjustment, the tree is recombinant on the underlying price. With the drift adjustment, the tree is recombinant on the risk-free rate instead. This prevents the drift from occurring, which will be illustrated in its specific graph.
 > I referenced [this article](https://fbe.unimelb.edu.au/__data/assets/pdf_file/0010/2591884/170.pdf) for the calculations of up and down.
 
-## Sensitivity Graphs
+##Sensitivity Graphs
 > Y-axis is the option price, X-axis is the parameter being changed
 
 ### Risk-Free Rate without Risk-Neutral Drift Adjustment:
@@ -145,14 +145,13 @@ As the direct opposite of the option strike graph, the value of puts incease as 
 Again, the lines intersect around when the underlying price equals the strike.
 
 ## The put-call symmetry theory
-> coming soon...
-<!-- Most options theory and learning introduce the put-call parity concept. 
+Most academic options courses introduce put-call parity as one of the core concepts in options pricing. Since it is fairly intuitive and bases itself on more basic concepts such as discounting, it is a good start for a student who wants to learn more about options. 
 
 ![image](https://user-images.githubusercontent.com/125106540/233417000-f25561e5-dd82-4774-822e-14845f83cec8.png)
 
-There are a few restrictions on the use of the put-call parity such as the options must be European, the strikes must be the same, and the options must have the same maturity day. We focus on the limitations from the options being European only. 
+The model is based off the continuous Black-Scholes-Merton model, and as such is restricted to European options only. Since the binomial model outlined above has application to both the American and European model, we want to use a rule applicable to both American and European options. Thankfully, the put-call symmetry theory exists as presented by [Peter Carr and Roger Lee.](https://math.uchicago.edu/~rogerlee/PCSR22.pdf)
 
-The put-call symmetry theory states that a put option will be the same price as a call option if the strike and underlying, risk-free rate and dividend yield are switched. It also works for American options, so it is much more applicable in the general sense to options in the market. Furthermore, it is only valid 
+The put-call symmetry theory states that a put option will be the same price as a call option if the (strike and underlying) and (risk-free rate and dividend yield) are switched. Since the theory works with American options and is also based off the Black-Scholes-Merton model, I would like to compare it with the results obtained from the binomial model. The relevant graphic to look at will be the [increasing time step graph](###-time-steps:).
 
 ![image](https://user-images.githubusercontent.com/125106540/235369801-c9d4f164-46de-4946-a7f7-e42eb788e3ee.png)
 
@@ -165,8 +164,8 @@ For a call with:
     - Risk-free Rate: 4%
     - Dividend Yield: 2%
 
-> European call option price is $ 14.534419943634203
-> American call option price is $ 14.534419943634203
+- European call option price is $ 14.534419943634203
+- American call option price is $ 14.534419943634203
 
 Then for a put with: 
     - Strike: $100
@@ -177,8 +176,18 @@ Then for a put with:
     - Risk-free Rate: 2%
     - Dividend Yield: 4%
 
-> European put option price is $ 14.534419943634173
-> American put option price is $ 14.534419943634173
+- European put option price is $ 14.534419943634173
+- American put option price is $ 14.534419943634173
 
-So, we see here that the prices for both puts and calls are the same up until the 13th decimal place, where this decimal is likely too insignificant to affect the listed price. 
--->
+So, we see here that the prices for both puts and calls are the same up until the 13th decimal place, where this decimal is likely too insignificant to affect the listed price. We can conclude with reasonable certainty that for a period of about 36 days, the prices for puts and calls using the put-call symmetry theory are in tune with the expected outcome. 
+
+The complicated part of using the put-call symmetry theory is that it bases itself off the black-scholes-merton model, which is continuous. In contrast, the binomial model is discrete, with the accuracy of the model depending on the number of time steps. 
+
+> Thank you to Louis Mao, a family friend, for pointing this connection out to me. His [LinkedIn](https://www.linkedin.com/in/louis-mao-4555b866/).
+
+We have already established that the binomial model with enough steps will converge to the black-scholes-merton model. I believe evaluating the model with a low number of steps will be valuable to assess as the prices already oscillate even at a low number of time steps. 
+
+> More to come...
+
+## Sharpe Ratio Calculation if Taken to Market
+> coming soon...
