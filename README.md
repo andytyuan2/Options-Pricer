@@ -190,4 +190,7 @@ We have already established that the binomial model with enough steps will conve
 > More to come...
 
 ## Sharpe Ratio Calculation if Taken to Market
+![image](https://user-images.githubusercontent.com/125106540/236105083-51834092-7e25-4fd4-bf72-b0cad5bc6e6e.png)
+
 > coming soon...
+> NOTE: for underpriced vs model, buy the option; for overpriced, sell the option
