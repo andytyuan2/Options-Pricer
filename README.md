@@ -187,6 +187,18 @@ The complicated part of using the put-call symmetry theory is that it bases itse
 
 We have already established that the binomial model with enough steps will converge to the black-scholes-merton model. I believe evaluating the model with a low number of steps will be valuable to assess as the prices already oscillate even at a low number of time steps. 
 
+The following graphs zoom into the time step graph to show the effect of a time step of up to about 30 days. It's obvious that the oscillation of the price begins to lose its height as more time steps are added. The trend line begins to pass through the graph closer to the upward oscillation, but eventually makes its way to the middle of both oscillations. We can ensure that the trendline is linear because the binomial alternates up and down AROUND the price shown in the black-scholes model. 
+
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/8fcdda6c-5c7a-40bf-9864-7356c3fe4960)
+
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/38c37148-2053-4a40-be76-bed875b3aca0)
+
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/9de90e55-5ab2-4dd1-b600-36640f737066)
+
+
+
+
+
 > More to come...
 
 ## Sharpe Ratio Calculation if Taken to Market
