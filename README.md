@@ -209,10 +209,10 @@ We see here that the slope of the respective trendlines is taken to the 4th sign
 You may notice that the approximation of the binomial model with a low number of time steps is not a very accurate measure of an option's price. 
 
 Differences: 
-- Call Prices: 9.2357/8.7398 - 1 = 5.674%
+- Call Prices: 9.2357/8.7398 - 1 = *5.674%*
 - Put Prices: 
-    - American Put: 7.5089/7.02 - 1 = 6.964%
-    - European Put: 7.2302/6.7989 - 1 = 6.344%
+    - American Put: 7.5089/7.02 - 1 = *6.964%*
+    - European Put: 7.2302/6.7989 - 1 = *6.344%*
 
 
 
