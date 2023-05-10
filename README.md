@@ -195,6 +195,26 @@ The following graphs zoom into the time step graph to show the effect of a time 
 
 ![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/9de90e55-5ab2-4dd1-b600-36640f737066)
 
+For the call options, the expected value with a low number of time steps is the y-intercept: $9.2357. For the put options, the expected value with a low number of time steps is the y-intercept: $7.5089 for American puts and $7.2302 for European puts.
+
+We then compare these values to when the number of time steps increases to when the oscillation's height is small. I pulled the values from time steps 250 to 299. 
+
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/eaf0fd08-8130-49f5-8dba-728f328e5db5)
+
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/d5b44972-ab47-4630-9b87-5115e36ee90d)
+
+
+We see here that the slope of the respective trendlines is taken to the 4th significant figure, so we will take this as a 0 slope. Thus, the expected value of a call option is $8.7398 while the expected value of a put is $7.02 and $6.7989 for American and European puts, respectively. 
+
+You may notice that the approximation of the binomial model with a low number of time steps is not a very accurate measure of an option's price. 
+
+Differences: 
+- Call Prices: 9.2357/8.7398 - 1 = 5.674%
+- Put Prices: 
+    - American Put: 7.5089/7.02 - 1 = 6.964%
+    - European Put: 7.2302/6.7989 - 1 = 6.344%
+
+
 
 
 
