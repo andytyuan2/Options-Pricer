@@ -189,11 +189,11 @@ We have already established that the binomial model with enough steps will conve
 
 The following graphs zoom into the time step graph to show the effect of a time step of up to about 30 days. It's obvious that the oscillation of the price begins to lose its height as more time steps are added. The trend line begins to pass through the graph closer to the upward oscillation, but eventually makes its way to the middle of both oscillations. We can ensure that the trendline is linear because the binomial alternates up and down AROUND the price shown in the black-scholes model. 
 
-![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/8fcdda6c-5c7a-40bf-9864-7356c3fe4960)
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/66edfb9b-4bd3-4365-b52d-157d78f32cf5)
 
-![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/38c37148-2053-4a40-be76-bed875b3aca0)
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/c77b61b9-6ddf-4f95-b612-9862b2403c73)
 
-![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/9de90e55-5ab2-4dd1-b600-36640f737066)
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/881ff83a-5eb0-4675-8027-dc9444e9d81e)
 
 For the call options, the expected value with a low number of time steps is the y-intercept: $9.2357. For the put options, the expected value with a low number of time steps is the y-intercept: $7.5089 for American puts and $7.2302 for European puts.
 
@@ -201,25 +201,45 @@ We then compare these values to when the number of time steps increases to when 
 
 ![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/eaf0fd08-8130-49f5-8dba-728f328e5db5)
 
-![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/d5b44972-ab47-4630-9b87-5115e36ee90d)
-
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/a27a482b-1578-40e9-8d3e-b0ac6128f46d)
 
 We see here that the slope of the respective trendlines is taken to the 4th significant figure, so we will take this as a 0 slope. Thus, the expected value of a call option is $8.7398 while the expected value of a put is $7.02 and $6.7989 for American and European puts, respectively. 
 
 You may notice that the approximation of the binomial model with a low number of time steps is not a very accurate measure of an option's price. 
 
 Differences: 
-- Call Prices: 9.2357/8.7398 - 1 = *5.674%*
+- Call Prices: 9.2357/8.7398 - 1 = **5.674%**
 - Put Prices: 
-    - American Put: 7.5089/7.02 - 1 = *6.964%*
-    - European Put: 7.2302/6.7989 - 1 = *6.344%*
+    - American Put: 7.5089/7.02 - 1 = **6.964%**
+    - European Put: 7.2302/6.7989 - 1 = **6.344%**
 
+A difference of this magnitude would be detrimental to most traders' accounts, especially because of the markets' volatility. Let us also see the put-call symmetry at work with a low number of steps. We will have the dividend yield be 4% while the risk-free rate will be 2%. The strike and underlying are both 100, so there is no switching to do. As established before, the put-call symmetry should work. 
 
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/94de00a8-cb7b-4827-873e-784eb5c851da)
 
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/addc0da2-560c-41bf-abf9-391ac06ef7b1)
 
+This is definitely encouraging, as the expected value of the calls is exactly the same as the puts on the other side of the put-call symmetry: $7.5089 for American exercise and $7.2302 for European exercise. For the puts, the difference between the expected value is -0.699% at $9.1711. This is a small difference that will likely not have a drastic effect on the overall theory. Something else that is encouraging is the behaviour of the option prices after applying put-call symmetry. Before, the call prices seemed to be almost the same while the put prices had a noticeable difference between put and call. Now with the symmetry applied, the behaviour is reversed so that the calls behave as the previous puts and the puts behave like the previous calls.
 
+Now we evaluate the same for the actual expected value of the puts and calls and compare it to the low time step prices. Again, I pulled the values from time steps 250 to 299. 
 
-> More to come...
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/f4a301ad-80a8-4f33-87de-f343e3db61ee)
+
+![image](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/assets/125106540/ae6a8d3f-aa38-48ab-9b4e-797774b41a87)
+
+Now, the expected value of a call option is $7.0193 for American exercise and $6.798 for European Exercise. The expected value of a put option is $8.7389, which can be rounded to $8.739. Again, there is a discrepancy between the 'continuous' price vs the discrete price. We expect this difference to be the same as without PCS applied. 
+
+Differences: 
+- Call Prices: 
+    - American Call: 7.5089/7.0193 = **6.9751%**
+    - European Put: 7.2302/6.798 = **6.3578%**
+- Put Prices: 9.1711/8.7389 = **4.9457%**
+
+The main change in this is from the call price conversion to put price. The percentage change of the change in the discrete vs continuous price is 14.7259%, while the absolute change is 0.7283%. 
+
+<!-- I anticipate that this change is the result of slight numerical differences in the tree. -->
+
+This comparison seems to confirm that put-call symmetry works in the binomial model almost as well as its use in the continuous black-scholes model. Since the binomial model can evaluate each node instead of spitting out one value, the use for it is more well rounded, especially with the addition of the put-call symmetry.
 
 ## Sharpe Ratio Calculation if Taken to Market
 
