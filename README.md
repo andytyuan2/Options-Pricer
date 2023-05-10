@@ -229,7 +229,7 @@ Now we evaluate the same for the actual expected value of the puts and calls and
 
 Now, the expected value of a call option is $7.0193 for American exercise and $6.798 for European Exercise. The expected value of a put option is $8.7389, which can be rounded to $8.739. Again, there is a discrepancy between the 'continuous' price vs the discrete price. We expect this difference to be the same as without PCS applied. 
 
-Differences: 
+Differences with PCS applied: 
 - Call Prices: 
     - American Call: 7.5089/7.0193 = **6.9751%**
     - European Put: 7.2302/6.798 = **6.3578%**
