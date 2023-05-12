@@ -247,3 +247,4 @@ This comparison seems to confirm that put-call symmetry works in the binomial mo
 
 > coming soon...
 > NOTE: for underpriced vs model, buy the option; for overpriced, sell the option
+<!-- use yahoo finance to pull the option prices from market, figure out how to use a span of time to price over the average 
