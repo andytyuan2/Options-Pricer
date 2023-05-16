@@ -149,7 +149,7 @@ Most academic options courses introduce put-call parity as one of the core conce
 
 ![image](https://user-images.githubusercontent.com/125106540/233417000-f25561e5-dd82-4774-822e-14845f83cec8.png)
 
-The model is based off the continuous Black-Scholes-Merton model, and as such is restricted to European options only. Since the binomial model outlined above has application to both the American and European model, we want to use a rule applicable to both American and European options. Thankfully, the put-call symmetry theory exists as presented by [Peter Carr and Roger Lee.](https://math.uchicago.edu/~rogerlee/PCSR22.pdf)
+The model is based off the continuous Black-Scholes-Merton model, and as such is restricted to European options only. Since the binomial model outlined above has application to both the American and European model, we want to use a rule applicable to both American and European options. Thankfully, the put-call symmetry theory exists as first pointed out by David Bates' ['The Skewness Premium: Option Pricing Under Asymmetric Processes'](https://www.biz.uiowa.edu/faculty/dbates/papers/skewprem.pdf).
 
 The put-call symmetry theory states that a put option will be the same price as a call option if the (strike and underlying) and (risk-free rate and dividend yield) are switched. Since the theory works with American options and is also based off the Black-Scholes-Merton model, I would like to compare it with the results obtained from the binomial model. The relevant graphic to look at will be the [increasing time step graph](###-time-steps:).
 
