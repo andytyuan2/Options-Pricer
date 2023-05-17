@@ -145,7 +145,7 @@ As the direct opposite of the option strike graph, the value of puts incease as 
 Again, the lines intersect around when the underlying price equals the strike.
 
 ## The put-call symmetry theory
-Most academic options courses introduce put-call parity as one of the core concepts in options pricing. Since it is fairly intuitive and bases itself on more basic concepts such as discounting, it is a good start for a student who wants to learn more about options. 
+Most academic options courses introduce put-call parity as one of the core concepts in options pricing. Since it is fairly intuitive and has a number of limitations, it is a good start for a student who wants to learn more about options. 
 
 ![image](https://user-images.githubusercontent.com/125106540/233417000-f25561e5-dd82-4774-822e-14845f83cec8.png)
 
