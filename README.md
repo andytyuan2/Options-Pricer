@@ -245,6 +245,4 @@ This comparison seems to confirm that put-call symmetry works in the binomial mo
 
 ![image](https://user-images.githubusercontent.com/125106540/236105083-51834092-7e25-4fd4-bf72-b0cad5bc6e6e.png)
 
-> coming soon...
-> NOTE: for underpriced vs model, buy the option; for overpriced, sell the option
-<!-- use yahoo finance to pull the option prices from market, figure out how to use a span of time to price over the average 
+I calculated a Sharpe ratio to validate the pricing model's use when compared to market prices. Typically a Sharpe ratio of under 1 is considered subpar and not worthy of investment. In the code, the user specifies the ticker symbol and a date of expiry for the option. The calculator will then run through data from Yahoo! Finance and come back with a Sharpe ratio. Through all of my tests, the Sharpe ratio is consistently under 1, typically around 0.5. This supports the use of the binomial model to price options. It is able to accurately calculate the option's price.
