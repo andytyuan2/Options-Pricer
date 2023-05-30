@@ -243,10 +243,12 @@ This comparison seems to confirm that put-call symmetry works in the binomial mo
 
 ## Sharpe Ratio Calculation to Support the Binomial Model's use in the Market
 
+<!--I calculated a Sharpe ratio to validate the pricing model's use when compared to market prices. Typically a Sharpe ratio of under 1 is considered subpar and not worthy of investment. In the code, the user specifies the ticker symbol and a date of expiry for the option. The calculator will then run through data from Yahoo! Finance and come back with a Sharpe ratio. Through all of my tests, the Sharpe ratio is consistently under 1, typically around 0.5. This supports the use of the binomial model to price options. It is able to accurately calculate the option's price. -->
+
+I calculated a Sharpe ratio to support the pricing model's use in markets. Of course, a market maker will not necessarily be using the binomial model, but it is useful to see the comparisons brought up by the calculation. The Sharpe ratio is a formula that measures an investment's performance while factoring in risk adjustments. The return of the investment is compared to the risk-free rate outlined by the 3-month treasury rate and an expected return is then calculated. 
+
 ![image](https://user-images.githubusercontent.com/125106540/236105083-51834092-7e25-4fd4-bf72-b0cad5bc6e6e.png)
 
-I calculated a Sharpe ratio to validate the pricing model's use when compared to market prices. Typically a Sharpe ratio of under 1 is considered subpar and not worthy of investment. In the code, the user specifies the ticker symbol and a date of expiry for the option. The calculator will then run through data from Yahoo! Finance and come back with a Sharpe ratio. Through all of my tests, the Sharpe ratio is consistently under 1, typically around 0.5. This supports the use of the binomial model to price options. It is able to accurately calculate the option's price.
+The way that I calculated the Sharpe ratio for this options pricer is by first establishing that the return on the options would be from 'mispricings' that had positive returns. This meant that for an option, if the market price was less than the binomial calculated price, then the action taken would be to sell. Similarly, if the market option was more than the binomial calculated price, then the action to buy would be executed. This ensured that all the returns were positive and I was able to calculate a Sharpe ratio based on market mispricings rather than absolute returns. The concept behind the mispricing return was that the market would adjust to the calculated price. This approach considered price risk only as the correction is assumed to be instant. 
 
-I calculated a Sharpe ratio to support the pricing model's use in markets. Of course, a market maker will not necessarily be using the binomial model, but it is useful to see the comparisons brought up by the calculation. 
 
-The Sharpe ratio is a 
