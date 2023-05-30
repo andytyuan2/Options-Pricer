@@ -12,11 +12,11 @@ import yfinance as yaf
 
 
 #####################################################################################################################################################################################
-dict = {'time steps' : 10, 'risk-free rate': 0.05261, 'callput': -1, 'AmerEu': 1}
+dict = {'time steps' : 13, 'risk-free rate': 0.05261, 'callput': -1, 'AmerEu': 1}
 
-if dict['callput'] > 0:                                     # call = 1, put = -1; in callput
+if dict['callput'] == 1:                                     # call = 1, put = -1; in callput
     option_type = 'calls'
-else:
+elif dict['callput'] == -1:
     option_type = 'puts'
 if dict['AmerEu'] > 0:                                      # American = 1, European = -1; in AmerEu
     exercise = 'American'
@@ -26,7 +26,7 @@ else:
 #####################################################################################################################################################################################
 
 # TICKER
-ticker = 'msft'
+ticker = 'nflx'                                             # not case sensitive
 
 # EXPIRATION LIST
 expiration = op.get_expiration_dates(ticker)
@@ -52,7 +52,11 @@ for daate in expiration:
 # DIVIDEND YIELD EXTRACTION
 def div_yield():
     stockdiv = yaf.Ticker(ticker)
-    return stockdiv.info['dividendRate']
+    try:
+        divrate = stockdiv.info['dividendRate']
+    except KeyError:
+        divrate = 0
+    return divrate
 
 # STRIKES EXTRACTION
 old_strike = opinfo[date_of_exp][['Strike']].values.tolist()
