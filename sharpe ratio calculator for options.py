@@ -205,28 +205,3 @@ standard_dev = mpmath.sqrt(sum(ex_2_val) - expected_val**2)
 # SHARPE RATIO CALCULATION
 sharpe_ratio = float(expected_val) / float(standard_dev)
 print('sharpe ratio is', sharpe_ratio)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#####################################################################################################################################################################################
-
-
-
-# sharpe ratio for underpriced market options, buy = EV((calculated option price/market option price - 1) - (risk-free return)) / sd(of EV numerator)
-    # underpriced mean that you want to buy the market since it has the same expected return as the calculated but it lower in initial price 
-    # if bid price is lower than the calculated amount, you want to buy it 
-# sharpe ratio for overpriced market options, sell = EV((market option price/calculated option price - 1) - (risk-free return))  / sd(of EV numerator)
-    # overpriced mean that you want to sell the marrket since it has the same expected return but is higher in initial return 
-    # if the ask for the market is higher than the calculated amount, you want to sell it 
