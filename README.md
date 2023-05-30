@@ -251,4 +251,21 @@ I calculated a Sharpe ratio to support the pricing model's use in markets. Of co
 
 The way that I calculated the Sharpe ratio for this options pricer is by first establishing that the return on the options would be from 'mispricings' that had positive returns. This meant that for an option, if the market price was less than the binomial calculated price, then the action taken would be to sell. Similarly, if the market option was more than the binomial calculated price, then the action to buy would be executed. This ensured that all the returns were positive and I was able to calculate a Sharpe ratio based on market mispricings rather than absolute returns. The concept behind the mispricing return was that the market would adjust to the calculated price. This approach considered price risk only as the correction is assumed to be instant. 
 
+I calculated the expected value through the open interest totals. This was done through the Python packages yahoo_fin and yfinance. The calculation first specifies if the relevant option is a call or put, then evaluates the excessive return by scanning through the relevant bid and ask. It can be done for any stock in the yahoo_fin package, which directly scrapes from Yahoo! Finance website. From there, a standard deviation is calculated by sqrt(E(v^2) - E^2(v)). Again, the probabilities/weights of the purchase were directly related to the open interest totals. 
+
+The Sharpe ratio evaluates performance by how large the result is. In most cases, a Sharpe ratio of 1 is fair, below 1 is poor, and above 1 is good. The greater the ratio, the greater is the risk-adjusted performance of the portfolio or asset of interest. There are some limitations to the metric, namely that the Sharpe ratio measures the standard deviation according to a normal distribution. As seen in many open interest numbers, the options market does not folow a normal distribution. I believe the way I handled the Sharpe ratio calculation stops the possibility of if the price can move up or down as my calculator only looks at an absolute positive return after mean reversion.
+
+The bottom line of my building this calculator is that the returns from mean reversion of market options are too minuscule to have any meaningful impact on a portfolio. The sharpe ratio of all the possible options are consistently lower than 1 for all symbols and option types I tested. For example, on May 30, 2023 for the June 21, 2024 expiry, the MSFT put option Sharpe ratio was 0.5428074151836801, definitively under the benchmark ratio of 1. Similarly, the Sharpe ratio for AAPL with the same expiry and type was 0.667020814931802. As tests go further, which I implore you do with the provided code, the Sharpe ratio is consistently under 1. 
+
+This supports the use of the binomial model in the options markets to price options, and may very well be a basic strategy of some options market makers. It does not suit a retail investor or even an institution because the risk from using the model would far outweigh the return. It is effective as a pricing strategy but not a source of alpha for most people. 
+
+## Closing Thoughts
+
+> coming soon
+
+<!-- SOURCES
+
+https://www.investopedia.com/terms/s/sharperatio.asp sharpe ratio
+
+
 
