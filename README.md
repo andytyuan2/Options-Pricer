@@ -64,7 +64,7 @@ The other three files: [American Options Only](https://github.com/andytyuan2/Bin
 Without the risk-neutral drift adjustment, the tree is recombinant on the underlying price. With the drift adjustment, the tree is recombinant on the risk-free rate instead. This prevents the drift from occurring, which will be illustrated in its specific graph.
 > I referenced [this article](https://fbe.unimelb.edu.au/__data/assets/pdf_file/0010/2591884/170.pdf) for the calculations of up and down.
 
-##Sensitivity Graphs
+## Sensitivity Graphs
 > Y-axis is the option price, X-axis is the parameter being changed
 
 ### Risk-Free Rate without Risk-Neutral Drift Adjustment:
