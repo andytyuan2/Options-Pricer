@@ -241,8 +241,12 @@ The main change in this is from the call price conversion to put price. The perc
 
 This comparison seems to confirm that put-call symmetry works in the binomial model almost as well as its use in the continuous black-scholes model. Since the binomial model can evaluate each node instead of spitting out one value, the use for it is more well rounded, especially with the addition of the put-call symmetry.
 
-## Sharpe Ratio Calculation if Taken to Market
+## Sharpe Ratio Calculation to Support the Binomial Model's use in the Market
 
 ![image](https://user-images.githubusercontent.com/125106540/236105083-51834092-7e25-4fd4-bf72-b0cad5bc6e6e.png)
 
 I calculated a Sharpe ratio to validate the pricing model's use when compared to market prices. Typically a Sharpe ratio of under 1 is considered subpar and not worthy of investment. In the code, the user specifies the ticker symbol and a date of expiry for the option. The calculator will then run through data from Yahoo! Finance and come back with a Sharpe ratio. Through all of my tests, the Sharpe ratio is consistently under 1, typically around 0.5. This supports the use of the binomial model to price options. It is able to accurately calculate the option's price.
+
+I calculated a Sharpe ratio to support the pricing model's use in markets. Of course, a market maker will not necessarily be using the binomial model, but it is useful to see the comparisons brought up by the calculation. 
+
+The Sharpe ratio is a 
