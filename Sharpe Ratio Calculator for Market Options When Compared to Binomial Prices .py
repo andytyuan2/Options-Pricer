@@ -48,6 +48,8 @@ for daate in expiration:
     opinfo[daate] = chaindata
 
 #####################################################################################################################################################################################
+# RISK FREE RATE EXTRACTION
+dict['risk-free rate'] = (si.get_live_price('TNX')) / 100
 
 # DIVIDEND YIELD EXTRACTION
 def div_yield():
@@ -83,7 +85,6 @@ while j < len(opinfo[date_of_exp][['Strike']]):
     dict['price'] = si.get_live_price(ticker)
     dict['years'] = time_between.days/365
     dict['dividend'] = div_yield()/100
-    dict['risk-free rate']                          # need to find risk-free rate from yahoo finance 
 
     if new_vol[j] == 0:
         u = 1.0000001
@@ -208,4 +209,4 @@ standard_dev = mpmath.sqrt(sum(ex_2_val) - expected_val**2)
 
 # SHARPE RATIO CALCULATION
 sharpe_ratio = float(expected_val) / float(standard_dev)
-print('sharpe ratio is', sharpe_ratio)
+print(ticker, option_type,'option Sharpe ratio is', sharpe_ratio)
