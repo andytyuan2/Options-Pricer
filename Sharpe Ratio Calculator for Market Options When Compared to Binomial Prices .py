@@ -12,16 +12,19 @@ import yfinance as yaf
 
 
 #####################################################################################################################################################################################
-dict = {'time steps' : 13, 'risk-free rate': 0.05261, 'callput': -1, 'AmerEu': 1}
+dict = {'time steps' : 13, 'callput': 1, 'AmerEu': 1}
 
 if dict['callput'] == 1:                                     # call = 1, put = -1; in callput
     option_type = 'calls'
+    optionsname = 'call'
 elif dict['callput'] == -1:
     option_type = 'puts'
-if dict['AmerEu'] > 0:                                      # American = 1, European = -1; in AmerEu
+    optionsname = 'put'
+if dict['AmerEu'] == 1:                                      # American = 1, European = -1; in AmerEu
     exercise = 'American'
-else:
+elif dict['AmerEu'] == -1:
     exercise = 'European'
+    # NOTE: all US market options on securities seen on Yahoo Finance are American exercise, only indexes are European
 
 #####################################################################################################################################################################################
 
@@ -38,6 +41,7 @@ date_of_exp = 'June 21, 2024'                               # keep in mind to fo
 todays = date.today()
 expiry_date = date(2024, 6, 21)                             # formattted as (year, int(month), day)
 time_between = expiry_date - todays
+dict['years'] = time_between.days/365
 
 # CHAIN DATA
 chaindata = op.get_options_chain(ticker)[option_type]
@@ -47,9 +51,11 @@ opinfo = option_info
 for daate in expiration:
     opinfo[daate] = chaindata
 
-#####################################################################################################################################################################################
+
 # RISK FREE RATE EXTRACTION
-dict['risk-free rate'] = (si.get_live_price('TNX')) / 100
+ratefloat = (si.get_live_price('^TNX'))
+dict['risk-free rate'] = ratefloat / 100
+
 
 # DIVIDEND YIELD EXTRACTION
 def div_yield():
@@ -59,6 +65,7 @@ def div_yield():
     except KeyError:
         divrate = 0
     return divrate
+dict['dividend'] = div_yield()/100
 
 # STRIKES EXTRACTION
 old_strike = opinfo[date_of_exp][['Strike']].values.tolist()
@@ -75,6 +82,9 @@ for x in old_vol:
         items = item.replace("%","").replace(",","")
         new_vol.append(float(items))
 
+# PRICE EXTRACTION
+dict['price'] = si.get_live_price(ticker)
+
 #####################################################################################################################################################################################
 # PARAMETER SETTING
 calculated_price = []
@@ -82,9 +92,6 @@ j = 0
 while j < len(opinfo[date_of_exp][['Strike']]):
     dict['strike'] = new_strikes[j]
     dict['sigma'] = new_vol[j]/100
-    dict['price'] = si.get_live_price(ticker)
-    dict['years'] = time_between.days/365
-    dict['dividend'] = div_yield()/100
 
     if new_vol[j] == 0:
         u = 1.0000001
@@ -209,4 +216,6 @@ standard_dev = mpmath.sqrt(sum(ex_2_val) - expected_val**2)
 
 # SHARPE RATIO CALCULATION
 sharpe_ratio = float(expected_val) / float(standard_dev)
-print(ticker, option_type,'option Sharpe ratio is', sharpe_ratio)
+company = yaf.Ticker(ticker)
+name = company.info['longName']
+print(name, 'current', optionsname,'option Sharpe ratio is', sharpe_ratio)
