@@ -10,38 +10,39 @@ from yahoo_fin import stock_info as si
 import yahoo_fin as yf
 import yfinance as yaf
 
-
 #####################################################################################################################################################################################
-dict = {'time steps' : 13, 'callput': 1, 'AmerEu': 1}
-
-if dict['callput'] == 1:                                     # call = 1, put = -1; in callput
-    option_type = 'calls'
-    optionsname = 'call'
-elif dict['callput'] == -1:
-    option_type = 'puts'
-    optionsname = 'put'
-if dict['AmerEu'] == 1:                                      # American = 1, European = -1; in AmerEu
-    exercise = 'American'
-elif dict['AmerEu'] == -1:
-    exercise = 'European'
-    # NOTE: all US market options on securities seen on Yahoo Finance are American exercise, only indexes are European
-
+dict = {'time steps' : 13, 'AmerEu': 1}
 #####################################################################################################################################################################################
+
+                     #****** MODIFICATION SECTION ******#
 
 # TICKER
 ticker = 'nflx'                                             # not case sensitive
+
+# CALL VS PUT
+dict['callput'] = 1
 
 # EXPIRATION LIST
 expiration = op.get_expiration_dates(ticker)
 print('expiration dates are', expiration)
 
 # EXPIRY DATE
-date_of_exp = 'June 21, 2024'                               # keep in mind to format this properly, especially the months
+date_of_exp = 'June 9, 2023'                               # keep in mind to format this properly, especially the months
+expiry_date = date(2023, 6, 9)                             # formattted as (year, int(month), day)
 
-todays = date.today()
-expiry_date = date(2024, 6, 21)                             # formattted as (year, int(month), day)
-time_between = expiry_date - todays
-dict['years'] = time_between.days/365
+if dict['callput'] == 1:                                    # call = 1, put = -1; in callput
+    option_type = 'calls'
+    optionsname = 'call'
+elif dict['callput'] == -1:
+    option_type = 'puts'
+    optionsname = 'put'
+if dict['AmerEu'] == 1:                                     # American = 1, European = -1; in AmerEu
+    exercise = 'American'
+elif dict['AmerEu'] == -1:
+    exercise = 'European'
+    # NOTE: all US market options on securities seen on Yahoo Finance are American exercise, only indexes are European
+
+#####################################################################################################################################################################################
 
 # CHAIN DATA
 chaindata = op.get_options_chain(ticker)[option_type]
@@ -51,11 +52,14 @@ opinfo = option_info
 for daate in expiration:
     opinfo[daate] = chaindata
 
+# OPTION EXPIRY EXTRACTION
+todays = date.today()
+time_between = expiry_date - todays
+dict['years'] = time_between.days/365
 
 # RISK FREE RATE EXTRACTION
 ratefloat = (si.get_live_price('^TNX'))
 dict['risk-free rate'] = ratefloat / 100
-
 
 # DIVIDEND YIELD EXTRACTION
 def div_yield():
