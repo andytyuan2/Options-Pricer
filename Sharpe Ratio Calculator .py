@@ -17,7 +17,7 @@ dict = {'time steps' : 13}
                      #****** MODIFICATION SECTION ******#
 
 # TICKER
-ticker = 'lulu'                                             # not case sensitive
+ticker = 'aapl'                                             # not case sensitive
 
 # CALL VS PUT
 dict['callput'] = 1
@@ -204,12 +204,11 @@ for x in new_open_int:
     open_int_prob.append(x/new_sum_int)
 
 # CALCULATING EXPECTED VALUE
-expected_value = []
+expected_value = 0
 i = 0
 while i < len(option_return):
-    expected_value.append(option_return[i]*open_int_prob[i])
+    expected_value += (option_return[i]*open_int_prob[i])
     i += 1
-expected_val = sum(expected_value)
 
 # VARIANCE CALCULATION (E(V^2))
 ex_2_val = []
@@ -219,10 +218,10 @@ while i < len(option_return):
     i += 1
 
 # STANDARD DEVIATION
-standard_dev = mpmath.sqrt(sum(ex_2_val) - expected_val**2)
+standard_dev = mpmath.sqrt(sum(ex_2_val) - expected_value**2)
 
 # SHARPE RATIO CALCULATION
-sharpe_ratio = float(expected_val) / float(standard_dev)
+sharpe_ratio = float(expected_value) / float(standard_dev)
 company = yaf.Ticker(ticker)
 name = company.info['longName']
 print(name, 'current', optionsname,'option Sharpe ratio is', sharpe_ratio)
