@@ -245,6 +245,8 @@ This comparison seems to confirm that put-call symmetry works in the binomial mo
 
 ## Sharpe Ratio Calculation to Support the Binomial Model's use in the Market
 
+### it appears the packages I am using are giving me poor data, so this will have to be on hold. Furthermore, my calculator is wrong as of right now. 
+
 <!--I calculated a Sharpe ratio to validate the pricing model's use when compared to market prices. Typically a Sharpe ratio of under 1 is considered subpar and not worthy of investment. In the code, the user specifies the ticker symbol and a date of expiry for the option. The calculator will then run through data from Yahoo! Finance and come back with a Sharpe ratio. Through all of my tests, the Sharpe ratio is consistently under 1, typically around 0.5. This supports the use of the binomial model to price options. It is able to accurately calculate the option's price. -->
 
 I calculated a Sharpe ratio to support the pricing model's use in markets. Of course, a market maker will not necessarily be using the binomial model, but it is useful to see the comparisons brought up by the calculation. The Sharpe ratio is a formula that measures an investment's performance while factoring in risk adjustments. The return of the investment is compared to the risk-free rate outlined by the 3-month treasury rate and an expected return is then calculated. 
