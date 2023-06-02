@@ -11,16 +11,19 @@ import yahoo_fin as yf
 import yfinance as yaf
 
 #####################################################################################################################################################################################
-dict = {'time steps' : 13, 'AmerEu': 1}
+dict = {'time steps' : 13}
 #####################################################################################################################################################################################
 
                      #****** MODIFICATION SECTION ******#
 
 # TICKER
-ticker = 'nflx'                                             # not case sensitive
+ticker = 'lulu'                                             # not case sensitive
 
 # CALL VS PUT
 dict['callput'] = 1
+
+# AMERICAN VS EUROPEAN
+dict['AmerEu'] = 1
 
 # EXPIRATION LIST
 expiration = op.get_expiration_dates(ticker)
@@ -59,7 +62,7 @@ dict['years'] = time_between.days/365
 
 # RISK FREE RATE EXTRACTION
 ratefloat = (si.get_live_price('^TNX'))
-dict['risk-free rate'] = ratefloat / 100
+dict['risk-free rate'] = ratefloat * dict['years'] / 100
 
 # DIVIDEND YIELD EXTRACTION
 def div_yield():
@@ -69,7 +72,7 @@ def div_yield():
     except KeyError:
         divrate = 0
     return divrate
-dict['dividend'] = div_yield()/100
+dict['dividend'] = div_yield() * dict['years']/100
 
 # STRIKES EXTRACTION
 old_strike = opinfo[date_of_exp][['Strike']].values.tolist()
