@@ -48,7 +48,7 @@ The data I pulled from the sensitivity analysis is within the [Excel File](https
 ### Sharpe Ratio Calculator
 This [calculator](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/blob/main/Sharpe%20Ratio%20Calculator%20.py) scrapes real world data from Yahoo! Finance and calculates a Sharpe ratio based on the binomial model pricing by measuring returns as the percentage difference between the binomial calculated price and the market price. It supports the effectiveness of the binomial model in the real world because there is no opportunity for profitable investment.
 
-### Other Files\
+### Other Files
 Within the [Pricing Models Folder](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/tree/main/Pricing%20Models), there are three files:
 - The European Options Only file runs through only the European method of valuing the option, only taking the discounted version of the payoffs
 - The American Options Only file is similar to the European method of valuing the option, but takes into account the payoff at the specific time step. It chooses the maximum of the discounted payoffs and the payoff at exercise.
