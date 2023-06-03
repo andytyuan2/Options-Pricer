@@ -9,13 +9,9 @@ from yahoo_fin import options as op
 from yahoo_fin import stock_info as si
 import yahoo_fin as yf
 import yfinance as yaf
-
-#####################################################################################################################################################################################
 dict = {'time steps' : 13}
-#####################################################################################################################################################################################
 
                      #****** MODIFICATION SECTION ******#
-
 # TICKER
 ticker = 'aapl'                                             # not case sensitive
 
@@ -43,13 +39,10 @@ if dict['AmerEu'] == 1:                                     # American = 1, Euro
     exercise = 'American'
 elif dict['AmerEu'] == -1:
     exercise = 'European'
-    # NOTE: all US market options on securities seen on Yahoo Finance are American exercise, only indexes are European
-
-#####################################################################################################################################################################################
+            # NOTE: all US market options on securities seen on Yahoo Finance are American exercise, only indexes are European
 
 # CHAIN DATA
 chaindata = op.get_options_chain(ticker)[option_type]
-
 option_info = {}
 opinfo = option_info
 for daate in expiration:
@@ -76,31 +69,31 @@ dict['dividend'] = div_yield() * dict['years']/100
 
 # STRIKES EXTRACTION
 old_strike = opinfo[date_of_exp][['Strike']].values.tolist()
-new_strikes= []
+strikes= []
 for x in old_strike:
     for item in x:
-        new_strikes.append(int(item))
+        strikes.append(int(item))
 
 # VOLATILITY EXTRACTION
 old_vol = opinfo[date_of_exp][['Implied Volatility']].values.tolist()
-new_vol = []
+vol = []
 for x in old_vol:
     for item in x:
         items = item.replace("%","").replace(",","")
-        new_vol.append(float(items))
+        vol.append(float(items))
 
 # PRICE EXTRACTION
 dict['price'] = si.get_live_price(ticker)
 
-#####################################################################################################################################################################################
 # PARAMETER SETTING
 calculated_price = []
-j = 0
-while j < len(opinfo[date_of_exp][['Strike']]):
-    dict['strike'] = new_strikes[j]
-    dict['sigma'] = new_vol[j]/100
-
-    if new_vol[j] == 0:
+strikes.append(0)
+vol.append(0)
+print(strikes)
+for i,j in zip(strikes,vol):
+    dict['strike'] = i
+    dict['sigma'] = j/100
+    if j == 0:
         u = 1.0000001
     else:
         u = math.exp(dict['sigma']*math.sqrt(dict['years']/dict['time steps']))
@@ -113,15 +106,11 @@ while j < len(opinfo[date_of_exp][['Strike']]):
     def binomial():
         Tstep = dict['time steps']
         payoffs = []
-        n = 0
-        while n < (Tstep + 1): 
+        for n in range(Tstep+1):
             payoffs.append(max(0, dict['callput']*(dict['price']*(u**((Tstep)-n))*(d**n) - dict['strike'])))
-            n += 1
-        
         while Tstep >= 1:
             discounting1 = []
-            i = 0
-            while i < (Tstep):
+            for i in range(0,Tstep):
                 if dict['AmerEu'] == 1:
                     American_payoff = (dict['callput']*(dict['price']*(u**(Tstep-i-1)*(d**i)) - dict['strike']))
                     European_payoff = (((probup)*payoffs[i]) + ((1-probup)*payoffs[i+1])) / (math.exp(discount_factor))
@@ -130,8 +119,7 @@ while j < len(opinfo[date_of_exp][['Strike']]):
                     discounting1.append((((probup)*payoffs[i]) + ((1-probup)*payoffs[i+1]))
                                         / (math.exp(discount_factor)))
                 else:
-                    pass
-                i += 1  
+                    pass 
                 
             payoffs.clear()
             payoffs.extend(discounting1)
@@ -141,87 +129,79 @@ while j < len(opinfo[date_of_exp][['Strike']]):
         calculated_price.append(0)
     else:
         calculated_price.append(binomial()[0])
-    j += 1
 #####################################################################################################################################################################################
 # BID PRICES LIST
 old_bid = opinfo[date_of_exp][['Bid']].values.tolist()                      
-new_bid = []                            
+bids = []                            
 for x in old_bid:
     for item in x:
         if item == '-':
-            item = 0
+            bids.append(0)
         else:
-            None
-        new_bid.append(float(item))
-
+            bids.append(float(item))
+        
 # ASK PRICES LIST
 old_ask = opinfo[date_of_exp][['Ask']].values.tolist()                       
-new_ask= []
+asks = []
 for x in old_ask:
     for item in x:
         if item == '-':
-            item = 0
+            asks.append(0)
         else:
-            None
-        new_ask.append(float(item))
+            asks.append(float(item))
 
 # OPEN INTEREST LIST
 old_open_int = opinfo[date_of_exp][['Open Interest']].values.tolist()       
-new_open_int = []
+open_int = []
 for x in old_open_int:
     for item in x:
-        new_open_int.append(float(item))
+        open_int.append(float(item))
 
-#####################################################################################################################################################################################
 # EXCESS RETURN
 option_return = []
-i = 0
-while i < len(calculated_price):
-    if calculated_price[i] < new_bid[i] or new_bid[i] == 0 or ((calculated_price[i]/new_bid[i]) - 1 - dict['risk-free rate']) < 0:
+for i, j, k in zip(calculated_price, bids, asks):
+    if i <= j or j == 0 or ((i/j) - 1 - dict['risk-free rate']) < 0:
         option_return.append(0)
-    elif calculated_price[i] > new_bid[i] and new_bid[i] != 0:
-        option_return.append(((calculated_price[i]/new_bid[i]) - 1 - dict['risk-free rate'])*100)
-    elif calculated_price[i] > new_ask[i] or new_ask[i] == 0 or ((new_ask[i]/calculated_price[i]) - 1 - dict['risk-free rate']) < 0:
+    elif i > j and j != 0:
+        option_return.append(((i/j) - 1 - dict['risk-free rate'])*100)
+    elif i >= k or k == 0 or ((k/i) - 1 - dict['risk-free rate']) < 0:
         option_return.append(0)
-    elif calculated_price[i] < new_ask[i] and new_ask[i] != 0:
-        option_return.append(((new_ask[i]/calculated_price[i]) - 1 - dict['risk-free rate'])*100)
-    i += 1
+    elif i < k and k != 0:
+        option_return.append(((k/i) - 1 - dict['risk-free rate'])*100)
 
-#####################################################################################################################################################################################
-
-# ADJUSTING PROBABILITY
-i = 0
-while i < len(new_open_int):
-    if option_return[i] == 0:
-        new_sum_int = sum(new_open_int) - new_open_int[i]
+# PROBABILITIES OF OUTCOMES
+prob_denom = 0
+for i, j in zip(open_int, option_return):
+    if j != 0:
+        prob_denom += i
     else:
         None
-    i += 1
-
-# CALCULATING OPEN INTEREST PROBABILITY
-open_int_prob = []
-for x in new_open_int:
-    open_int_prob.append(x/new_sum_int)
+probabilities = []
+for x,y in zip(open_int, option_return):
+    if y != 0:
+        probabilities.append(x/prob_denom)
+    else:
+        None
+option_return = [i for i in option_return if i != 0]
 
 # CALCULATING EXPECTED VALUE
-expected_value = 0
-i = 0
-while i < len(option_return):
-    expected_value += (option_return[i]*open_int_prob[i])
-    i += 1
+expected_value = []
+for i, j in zip(probabilities, option_return):
+    expected_value.append(i*j) 
 
 # VARIANCE CALCULATION (E(V^2))
-ex_2_val = []
-i = 0
-while i < len(option_return):
-    ex_2_val.append(((option_return[i])**2)*open_int_prob[i])
-    i += 1
+def expected_square_value():
+    expected_square_value = []
+    for i,j in zip(option_return,probabilities):
+        expected_square_value.append(((i)**2)*j)
+    return expected_square_value
 
 # STANDARD DEVIATION
-standard_dev = mpmath.sqrt(sum(ex_2_val) - expected_value**2)
+standard_dev = mpmath.sqrt(sum(expected_square_value()) - (sum(expected_value))**2)
 
 # SHARPE RATIO CALCULATION
-sharpe_ratio = float(expected_value) / float(standard_dev)
+sharpe_ratio = float(sum(expected_value)) / float(standard_dev)
 company = yaf.Ticker(ticker)
 name = company.info['longName']
-print(name, 'current', optionsname,'option Sharpe ratio is', sharpe_ratio)
+print(name, 'current', optionsname,'option Sharpe ratio for', date_of_exp,'is', sharpe_ratio)
+
