@@ -26,8 +26,9 @@ expiration = op.get_expiration_dates(ticker)
 print('expiration dates are', expiration)
 
 # EXPIRY DATE
-date_of_exp = 'June 9, 2023'                               # keep in mind to format this properly, especially the months
-expiry_date = date(2023, 6, 9)                             # formattted as (year, int(month), day)
+date_of_exp = expiration[0]
+expiry_date = dt.strptime(date_of_exp, '%B %d, %Y'),datet()
+##################################################################################################################################################################################### 
 
 if dict['callput'] == 1:                                    # call = 1, put = -1; in callput
     option_type = 'calls'
