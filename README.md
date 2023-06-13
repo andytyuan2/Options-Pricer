@@ -46,7 +46,7 @@ The data I pulled from the sensitivity analysis is within the [Excel File](https
 - The reason why the decimal place limits exist is because I modeled the prices up to 400% risk-free rate. The graph for that would be essentially useless however, so I only captured the relevant portion for this repository.
 
 ### Sharpe Ratio Calculator
-This [calculator](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/blob/main/Sharpe%20Ratio%20Calculator%20.py) scrapes real world data from Yahoo! Finance and calculates a Sharpe ratio based on the binomial model pricing by measuring returns as the percentage difference between the binomial calculated price and the market price. It supports the effectiveness of the binomial model in the real world because there is no opportunity for profitable investment.
+This [calculator](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/blob/main/Sharpe%20Ratio%20Calculator%20.py) scrapes real world data from Yahoo! Finance and calculates a Sharpe ratio based on the binomial model pricing by measuring returns as the percentage difference between the binomial calculated price and the market price. It sometimes appears to support the effectiveness of the binomial pricing model, but sometimes wavers based on the data it takes from Yahoo! Finance.
 
 ### Other Files
 Within the [Pricing Models Folder](https://github.com/andytyuan2/Binomial-Options_Pricing-Andy-Y/tree/main/Pricing%20Models), there are three files:
@@ -245,7 +245,7 @@ This comparison seems to confirm that put-call symmetry works in the binomial mo
 
 ## Sharpe Ratio Calculation to Support the Binomial Model's use in the Market
 
-### it appears the packages I am using are giving me poor data, so this will have to be on hold. Furthermore, my calculator is wrong as of right now. 
+### it appears the packages I am using are giving me poor data, so this will have to be on hold. 
 
 <!--I calculated a Sharpe ratio to validate the pricing model's use when compared to market prices. Typically a Sharpe ratio of under 1 is considered subpar and not worthy of investment. In the code, the user specifies the ticker symbol and a date of expiry for the option. The calculator will then run through data from Yahoo! Finance and come back with a Sharpe ratio. Through all of my tests, the Sharpe ratio is consistently under 1, typically around 0.5. This supports the use of the binomial model to price options. It is able to accurately calculate the option's price. -->
 
