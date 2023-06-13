@@ -27,7 +27,7 @@ print('expiration dates are', expiration)
 
 # EXPIRY DATE
 date_of_exp = expiration[0]
-expiry_date = dt.strptime(date_of_exp, '%B %d, %Y'),datet()
+expiry_date = dt.strptime(date_of_exp, '%B %d, %Y'),date()
 ##################################################################################################################################################################################### 
 
 if dict['callput'] == 1:                                    # call = 1, put = -1; in callput
