@@ -8,7 +8,7 @@ dict = {'time steps' : 13}
 ##################################################################################################################################################################################### 
                      #****** MODIFICATION SECTION ******#
 # TICKER
-ticker = 'aapl'                                             # not case sensitive
+ticker = 'msft'                                             # not case sensitive
 stock = yf.Ticker(ticker)
 
 # CALL VS PUT
@@ -126,11 +126,13 @@ for i, j, k in zip(calculated_price, bids, asks):
     if i <= j or j == 0 or ((i/j) - 1 - risk_free_rate) < 0:
         option_return.append(0)
     elif i > j and j != 0:
-        option_return.append(((i/j) - 1 - risk_free_rate)*100)
+        returns = ((i/j) - 1 - risk_free_rate)*100
+        option_return.append(returns)
     elif i >= k or k == 0 or ((k/i) - 1 - risk_free_rate) < 0:
         option_return.append(0)
     elif i < k and k != 0:
-        option_return.append(((k/i) - 1 - risk_free_rate)*100)
+        returns = ((k/i) - 1 - risk_free_rate)*100
+        option_return.append(returns)
 
 # PROBABILITIES OF OUTCOMES
 prob_denom = 0
@@ -165,6 +167,11 @@ standard_dev = mpmath.sqrt(expected_square_value() - total_EV**2)
 print(f'Standard deviation is {standard_dev} and expected value is {total_EV}.')
 
 # SHARPE RATIO CALCULATION
-sharpe_ratio = float(total_EV) / float(standard_dev)
+def sharpe():
+    try:
+        sharpe_ratio = float(total_EV) / float(standard_dev)
+    except ZeroDivisionError:
+        sharpe_ratio = 0
+    return sharpe_ratio
 name = stock.info['longName']
-print(name, 'current', optionsname,'option Sharpe ratio for', date_of_exp,'is', sharpe_ratio)
+print(name, 'current', optionsname,'option Sharpe ratio for', date_of_exp,'is', sharpe())
