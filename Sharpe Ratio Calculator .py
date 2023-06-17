@@ -4,6 +4,7 @@ from datetime import date
 from datetime import datetime as dt
 from yahoo_fin import stock_info as si
 import yfinance as yf
+import numpy as np
 dict = {'time steps' : 13}
 ##################################################################################################################################################################################### 
                      #****** MODIFICATION SECTION ******#
@@ -150,26 +151,20 @@ for x,y in zip(open_int, option_return):
 option_return = [i for i in option_return if i != 0]  # removes all the zeroes in the list 
 
 # CALCULATING EXPECTED VALUE
-expected_values = []
-for i, j in zip(probabilities, option_return):
-    expected_values.append(i*j) 
-total_EV = sum(expected_values)
-
-# VARIANCE CALCULATION (E(V^2))
-def expected_square_value():
-    expected_square_value = []
-    for i,j in zip(option_return,probabilities):
-        expected_square_value.append(((i)**2)*j)
-    return sum(expected_square_value)
+def expected_value():
+    weighted_avg = np.average(option_return, weights=probabilities)
+    return weighted_avg
 
 # STANDARD DEVIATION
-standard_dev = mpmath.sqrt(expected_square_value() - total_EV**2)
-print(f'Standard deviation is {standard_dev} and expected value is {total_EV}.')
+def standard_dev():
+    variance = np.average((option_return - expected_value())**2, weights=probabilities)
+    return math.sqrt(variance)
+print(f'Standard deviation is {standard_dev()} and expected value is {expected_value()}.')
 
 # SHARPE RATIO CALCULATION
 def sharpe():
     try:
-        sharpe_ratio = float(total_EV) / float(standard_dev)
+        sharpe_ratio = float(expected_value()) / float(standard_dev())
     except ZeroDivisionError:
         sharpe_ratio = 0
     return sharpe_ratio
